@@ -9,11 +9,11 @@
 /* Begin PBXBuildFile section */
 		7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */; };
 		7CB7093E1FDFF403009E73F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7093D1FDFF403009E73F9 /* ViewController.swift */; };
-		7CB709411FDFF403009E73F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7093F1FDFF403009E73F9 /* Main.storyboard */; };
 		7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709421FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld */; };
 		7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709451FDFF403009E73F9 /* Assets.xcassets */; };
 		7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709471FDFF403009E73F9 /* LaunchScreen.storyboard */; };
 		7CB709541FDFF404009E73F9 /* CryptoMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709531FDFF404009E73F9 /* CryptoMonitorTests.swift */; };
+		7CB709681FE008B1009E73F9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709671FE008B1009E73F9 /* MainViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,7 +30,6 @@
 		7CB709381FDFF403009E73F9 /* CryptoMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB7093D1FDFF403009E73F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		7CB709401FDFF403009E73F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7CB709431FDFF403009E73F9 /* CryptoMonitor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoMonitor.xcdatamodel; sourceTree = "<group>"; };
 		7CB709451FDFF403009E73F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB709481FDFF403009E73F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -38,6 +37,7 @@
 		7CB7094F1FDFF404009E73F9 /* CryptoMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB709531FDFF404009E73F9 /* CryptoMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMonitorTests.swift; sourceTree = "<group>"; };
 		7CB709551FDFF404009E73F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7CB709671FE008B1009E73F9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,13 +79,9 @@
 		7CB7093A1FDFF403009E73F9 /* CryptoMonitor */ = {
 			isa = PBXGroup;
 			children = (
-				7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */,
-				7CB7093D1FDFF403009E73F9 /* ViewController.swift */,
-				7CB7093F1FDFF403009E73F9 /* Main.storyboard */,
-				7CB709451FDFF403009E73F9 /* Assets.xcassets */,
-				7CB709471FDFF403009E73F9 /* LaunchScreen.storyboard */,
-				7CB7094A1FDFF403009E73F9 /* Info.plist */,
-				7CB709421FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld */,
+				7CB709691FE0094C009E73F9 /* Support Files */,
+				7CB709661FE00171009E73F9 /* VCs */,
+				7CB709651FE00150009E73F9 /* Model */,
 			);
 			path = CryptoMonitor;
 			sourceTree = "<group>";
@@ -97,6 +93,34 @@
 				7CB709551FDFF404009E73F9 /* Info.plist */,
 			);
 			path = CryptoMonitorTests;
+			sourceTree = "<group>";
+		};
+		7CB709651FE00150009E73F9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7CB709421FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7CB709661FE00171009E73F9 /* VCs */ = {
+			isa = PBXGroup;
+			children = (
+				7CB7093D1FDFF403009E73F9 /* ViewController.swift */,
+				7CB709671FE008B1009E73F9 /* MainViewController.xib */,
+			);
+			path = VCs;
+			sourceTree = "<group>";
+		};
+		7CB709691FE0094C009E73F9 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */,
+				7CB709451FDFF403009E73F9 /* Assets.xcassets */,
+				7CB709471FDFF403009E73F9 /* LaunchScreen.storyboard */,
+				7CB7094A1FDFF403009E73F9 /* Info.plist */,
+			);
+			name = "Support Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,8 +207,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
+				7CB709681FE008B1009E73F9 /* MainViewController.xib in Resources */,
 				7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */,
-				7CB709411FDFF403009E73F9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,14 +251,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		7CB7093F1FDFF403009E73F9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7CB709401FDFF403009E73F9 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		7CB709471FDFF403009E73F9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
