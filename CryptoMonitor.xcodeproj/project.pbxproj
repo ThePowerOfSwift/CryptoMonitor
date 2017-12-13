@@ -7,13 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */; };
+		7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */; };
+		7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */; };
+		7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */; };
 		7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */; };
-		7CB7093E1FDFF403009E73F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7093D1FDFF403009E73F9 /* ViewController.swift */; };
 		7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709421FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld */; };
 		7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709451FDFF403009E73F9 /* Assets.xcassets */; };
 		7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709471FDFF403009E73F9 /* LaunchScreen.storyboard */; };
 		7CB709541FDFF404009E73F9 /* CryptoMonitorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709531FDFF404009E73F9 /* CryptoMonitorTests.swift */; };
-		7CB709681FE008B1009E73F9 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709671FE008B1009E73F9 /* MainViewController.xib */; };
+		7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709721FE02238009E73F9 /* MainViewController.swift */; };
+		7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7097D1FE02E73009E73F9 /* TopPairsViewController.swift */; };
+		7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */; };
+		7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */; };
+		7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */; };
+		7CB709891FE02EE2009E73F9 /* ContractsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709871FE02EE2009E73F9 /* ContractsViewController.swift */; };
+		7CB7098A1FE02EE2009E73F9 /* ContractsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709881FE02EE2009E73F9 /* ContractsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,9 +36,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
+		7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
+		7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListViewController.swift; sourceTree = "<group>"; };
+		7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsListViewController.xib; sourceTree = "<group>"; };
 		7CB709381FDFF403009E73F9 /* CryptoMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7CB7093D1FDFF403009E73F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7CB709431FDFF403009E73F9 /* CryptoMonitor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoMonitor.xcdatamodel; sourceTree = "<group>"; };
 		7CB709451FDFF403009E73F9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7CB709481FDFF403009E73F9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,7 +49,13 @@
 		7CB7094F1FDFF404009E73F9 /* CryptoMonitorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CryptoMonitorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB709531FDFF404009E73F9 /* CryptoMonitorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoMonitorTests.swift; sourceTree = "<group>"; };
 		7CB709551FDFF404009E73F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7CB709671FE008B1009E73F9 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		7CB709721FE02238009E73F9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7CB7097D1FE02E73009E73F9 /* TopPairsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPairsViewController.swift; sourceTree = "<group>"; };
+		7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPairsViewController.xib; sourceTree = "<group>"; };
+		7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
+		7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
+		7CB709871FE02EE2009E73F9 /* ContractsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContractsViewController.swift; sourceTree = "<group>"; };
+		7CB709881FE02EE2009E73F9 /* ContractsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContractsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +76,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C79F7231FE1285E008874D6 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */,
+				7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
 		7CB7092F1FDFF403009E73F9 = {
 			isa = PBXGroup;
 			children = (
@@ -106,8 +133,12 @@
 		7CB709661FE00171009E73F9 /* VCs */ = {
 			isa = PBXGroup;
 			children = (
-				7CB7093D1FDFF403009E73F9 /* ViewController.swift */,
-				7CB709671FE008B1009E73F9 /* MainViewController.xib */,
+				7C79F7231FE1285E008874D6 /* About */,
+				7CB709861FE02ED4009E73F9 /* Contracts */,
+				7CB709811FE02E9E009E73F9 /* Equipment */,
+				7CB7097C1FE02E5A009E73F9 /* TopPairs */,
+				7CB709771FE026E4009E73F9 /* CoinsList */,
+				7CB709761FE026A4009E73F9 /* Main */,
 			);
 			path = VCs;
 			sourceTree = "<group>";
@@ -121,6 +152,50 @@
 				7CB7094A1FDFF403009E73F9 /* Info.plist */,
 			);
 			name = "Support Files";
+			sourceTree = "<group>";
+		};
+		7CB709761FE026A4009E73F9 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7CB709721FE02238009E73F9 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		7CB709771FE026E4009E73F9 /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
+				7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */,
+				7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */,
+			);
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
+		7CB7097C1FE02E5A009E73F9 /* TopPairs */ = {
+			isa = PBXGroup;
+			children = (
+				7CB7097D1FE02E73009E73F9 /* TopPairsViewController.swift */,
+				7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */,
+			);
+			path = TopPairs;
+			sourceTree = "<group>";
+		};
+		7CB709811FE02E9E009E73F9 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */,
+				7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */,
+			);
+			path = Equipment;
+			sourceTree = "<group>";
+		};
+		7CB709861FE02ED4009E73F9 /* Contracts */ = {
+			isa = PBXGroup;
+			children = (
+				7CB709871FE02EE2009E73F9 /* ContractsViewController.swift */,
+				7CB709881FE02EE2009E73F9 /* ContractsViewController.xib */,
+			);
+			path = Contracts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,8 +281,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
-				7CB709681FE008B1009E73F9 /* MainViewController.xib in Resources */,
+				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
+				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
+				7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */,
+				7CB7098A1FE02EE2009E73F9 /* ContractsViewController.xib in Resources */,
 				7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -226,9 +305,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CB7093E1FDFF403009E73F9 /* ViewController.swift in Sources */,
+				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
+				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
+				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,
 				7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */,
+				7CB709891FE02EE2009E73F9 /* ContractsViewController.swift in Sources */,
+				7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */,
+				7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
