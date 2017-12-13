@@ -10,10 +10,17 @@ import UIKit
 
 class CoinsListViewController: UIViewController {
 
+    let networkService = NetworkService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+       NetworkService.request(fullURL: "https://min-api.cryptocompare.com/data/all/coinlist")
+        
     }
 
     override func didReceiveMemoryWarning() {

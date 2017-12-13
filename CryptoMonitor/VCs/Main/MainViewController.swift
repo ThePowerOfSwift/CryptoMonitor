@@ -34,15 +34,11 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let equipmentNavigationVC = UINavigationController(rootViewController: equipmentVC)
         equipmentNavigationVC.tabBarItem = UITabBarItem(title: "Equipment", image: #imageLiteral(resourceName: "ic_equipment"), selectedImage: #imageLiteral(resourceName: "ic_equipment"))
         
-        let contractsVC = ContractsViewController()
-        let contractsNavigationVC = UINavigationController(rootViewController: contractsVC)
-        contractsNavigationVC.tabBarItem = UITabBarItem(title: "Сontracts", image: #imageLiteral(resourceName: "ic_contract"), selectedImage: #imageLiteral(resourceName: "ic_contract"))
-        
         let aboutVC = AboutAppViewController()
         let aboutNavigationVC = UINavigationController(rootViewController: aboutVC)
         aboutNavigationVC.tabBarItem = UITabBarItem(title: "About app", image: #imageLiteral(resourceName: "ic_about_app"), selectedImage: #imageLiteral(resourceName: "ic_about_app"))
         
-        self.viewControllers = [coinsNavigationVC, topPairsNavigationVC, equipmentNavigationVC, contractsNavigationVC, aboutNavigationVC]
+        self.viewControllers = [coinsNavigationVC, topPairsNavigationVC, equipmentNavigationVC, aboutNavigationVC]
         
         self.tabBar.isTranslucent = false
     }
