@@ -15,29 +15,19 @@ class NetworkService {
     
     static var url_equipment = "api/data/miningequipment/"
     
-    
-    
     var responseBody: String = ""
     
     private static var baseURL: String {
         return "https://www.cryptocompare.com/"       /* prod */
     }
     
-    static func request(fullURL: String){
-        if Reachability.isConnectedToNetwork(){
-            Alamofire.request(fullURL, method: .post, parameters: nil, encoding: JSONEncoding.default, headers: nil).responseString { (response:DataResponse<String>) in
-                
-                switch(response.result) {
-                case .success(_):
-                    guard let data = response.result.value else {
-                       return
-                    }
-                    print(response.result.value)
-                case .failure(_):
-                    print(response.result.error)
-                }
+    static func request(fullURL: String, completionHandler: @escaping (DataResponse<Any>) -> Void){
+        if NetworkReachability.isConnectedToNetwork(){
+            Alamofire.request(fullURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON{ dataResponse in
+            DispatchQueue.main.async {
+                completionHandler(dataResponse)
             }
-            
+        }
         } else{
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()

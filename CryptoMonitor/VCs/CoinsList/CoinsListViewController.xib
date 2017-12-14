@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoinsListViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
+                <outlet property="textField" destination="7a0-9l-H6Q" id="4Rs-A3-nmk"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coins List" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-YR-Chc">
-                    <rect key="frame" x="134.5" y="329" width="106.5" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7a0-9l-H6Q">
+                    <rect key="frame" x="16" y="20" width="343" height="627"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ehl-YR-Chc" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="SGs-8n-ixA"/>
-                <constraint firstItem="ehl-YR-Chc" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="udd-Qb-3MU"/>
+                <constraint firstItem="7a0-9l-H6Q" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="108-8i-198"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7a0-9l-H6Q" secondAttribute="trailing" constant="16" id="PTD-4U-UAf"/>
+                <constraint firstItem="7a0-9l-H6Q" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="d8x-4d-xdN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7a0-9l-H6Q" secondAttribute="bottom" constant="20" id="oT6-vD-WZL"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>
 </document>

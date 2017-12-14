@@ -9,7 +9,9 @@
 import UIKit
 
 class CoinsListViewController: UIViewController {
-
+    
+    @IBOutlet weak var textField: UITextView!
+    
     let networkService = NetworkService()
     
     override func viewDidLoad() {
@@ -19,7 +21,11 @@ class CoinsListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-       NetworkService.request(fullURL: "https://min-api.cryptocompare.com/data/all/coinlist")
+        self.startActivityIndicator()
+        NetworkService.request(fullURL: "https://min-api.cryptocompare.com/data/all/coinlist", completionHandler: {(dataResponse) -> Void in
+            self.stopActivityIndicator()
+            self.textField.text = dataResponse.result.debugDescription
+        })
         
     }
 
