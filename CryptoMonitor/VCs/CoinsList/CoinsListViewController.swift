@@ -26,6 +26,9 @@ class CoinsListViewController: UIViewController {
         NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             self.textField.text = dataResponse.result.debugDescription
+            let coins = CoinsList.init(json: dataResponse.value!)
+            let sortedCoins = coins.coinsList
+            print("bug?")
         })
         
     }

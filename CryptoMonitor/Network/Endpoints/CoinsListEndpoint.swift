@@ -16,7 +16,7 @@ enum CoinsListEndpoint: EndpointProtocol {
 extension CoinsListEndpoint {
     
     var path: String{
-        return "api/data/coinlist/"
+        return "/data/all/coinlist"
     }
     
     var method: HTTPMethod{

@@ -8,22 +8,20 @@
 
 import Foundation
 import Alamofire
+import Alamofire_SwiftyJSON
+import SwiftyJSON
 
 class NetworkService {
     
-    static var url_list_coins = "api/data/coinlist/"
-    
-    static var url_equipment = "api/data/miningequipment/"
-    
-    var responseBody: String = ""
+    //https://min-api.cryptocompare.com/data/all/coinlist
     
     private static var baseURL: String {
-        return "https://www.cryptocompare.com/"       /* prod */
+        return "https://min-api.cryptocompare.com"       /* prod */
     }
     
-    static func request(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<Any>) -> Void){
+    static func request(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
         if NetworkReachability.isConnectedToNetwork(){
-            Alamofire.request(baseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseJSON{ dataResponse in
+            Alamofire.request(baseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
             DispatchQueue.main.async {
                 completionHandler(dataResponse)
             }
