@@ -21,9 +21,9 @@ class NetworkService {
         return "https://www.cryptocompare.com/"       /* prod */
     }
     
-    static func request(fullURL: String, completionHandler: @escaping (DataResponse<Any>) -> Void){
+    static func request(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<Any>) -> Void){
         if NetworkReachability.isConnectedToNetwork(){
-            Alamofire.request(fullURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil).responseJSON{ dataResponse in
+            Alamofire.request(baseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseJSON{ dataResponse in
             DispatchQueue.main.async {
                 completionHandler(dataResponse)
             }

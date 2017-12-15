@@ -21,8 +21,9 @@ class CoinsListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.textField.text.removeAll()
         self.startActivityIndicator()
-        NetworkService.request(fullURL: "https://min-api.cryptocompare.com/data/all/coinlist", completionHandler: {(dataResponse) -> Void in
+        NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             self.textField.text = dataResponse.result.debugDescription
         })

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1220DA1CD5677A492E4901B6 /* Pods_CryptoMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */; };
+		7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */; };
+		7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */; };
+		7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */; };
+		7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF7A1FE3DD4E00B5C8AD /* CoinInfo.swift */; };
 		7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */; };
 		7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5287541FE14B3F00B885B7 /* NetworkService.swift */; };
 		7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */; };
@@ -40,6 +44,10 @@
 /* Begin PBXFileReference section */
 		40B998CD5F1FD0C8889DC127 /* Pods-CryptoMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListEndpoint.swift; sourceTree = "<group>"; };
+		7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
+		7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsList.swift; sourceTree = "<group>"; };
+		7C2BAF7A1FE3DD4E00B5C8AD /* CoinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfo.swift; sourceTree = "<group>"; };
 		7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		7C5287541FE14B3F00B885B7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
@@ -84,6 +92,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C2BAF711FE3C98100B5C8AD /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */,
+				7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		7C2BAF761FE3D8CB00B5C8AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7C2BAF771FE3D94000B5C8AD /* CoinsList */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7C2BAF771FE3D94000B5C8AD /* CoinsList */ = {
+			isa = PBXGroup;
+			children = (
+				7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */,
+				7C2BAF7A1FE3DD4E00B5C8AD /* CoinInfo.swift */,
+			);
+			path = CoinsList;
+			sourceTree = "<group>";
+		};
 		7C52874E1FE1412100B885B7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +130,8 @@
 		7C5287531FE14B2300B885B7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				7C2BAF761FE3D8CB00B5C8AD /* Models */,
+				7C2BAF711FE3C98100B5C8AD /* Endpoints */,
 				7C5287541FE14B3F00B885B7 /* NetworkService.swift */,
 			);
 			path = Network;
@@ -402,16 +438,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */,
 				7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */,
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
+				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,
 				7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */,
 				7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */,
+				7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */,
 				7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */,
 				7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */,
+				7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
