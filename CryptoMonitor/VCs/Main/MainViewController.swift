@@ -26,6 +26,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let coinsVC = CoinsListViewController()
         let coinsNavigationVC = UINavigationController(rootViewController: coinsVC)
         coinsNavigationVC.tabBarItem = UITabBarItem(title: "Coins", image: #imageLiteral(resourceName: "ic_coins"), selectedImage: #imageLiteral(resourceName: "ic_coins"))
+        coinsNavigationVC.isNavigationBarHidden = true
         
         let topPairsVC = TopPairsViewController()
         let topPairsNavigationVC = UINavigationController(rootViewController: topPairsVC)

@@ -26,6 +26,8 @@ class CoinInfo {
     var totalCoinsFreeFloat: String = ""
     var sortOrder: Int = 0
     var sponsored: Bool = true
+    // Custom field - loaded image
+    var coinImage: Data?
 
     init(coinInfo: JSON) {
         id = coinInfo[NetworkParamsKeys.id.rawValue].intValue
@@ -43,22 +45,5 @@ class CoinInfo {
         totalCoinsFreeFloat = coinInfo[NetworkParamsKeys.totalCoinsFreeFloat.rawValue].stringValue
         sortOrder = coinInfo[NetworkParamsKeys.sortOrder.rawValue].intValue
         sponsored = coinInfo[NetworkParamsKeys.sponsored.rawValue].boolValue
-//        "365":{
-//            "Id":"33639",
-//            "Url":"/coins/365/overview",
-//            "ImageUrl":"/media/352070/365.png",
-//            "Name":"365",
-//            "Symbol":"365",
-//            "CoinName":"365Coin",
-//            "FullName":"365Coin (365)",
-//            "Algorithm":"X11",
-//            "ProofType":"PoW/PoS",
-//            "FullyPremined":"0",
-//            "TotalCoinSupply":"2300000000",
-//            "PreMinedValue":"N/A",
-//            "TotalCoinsFreeFloat":"N/A",
-//            "SortOrder":"916",
-//            "Sponsored":false
-//        }
     }
 }

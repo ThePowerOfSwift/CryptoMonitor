@@ -11,12 +11,22 @@ import Alamofire
 
 enum CoinsListEndpoint: EndpointProtocol {
     case getCoinsList()
+    case loadOverview(urlOverview: String)
+    case loadCoinImage(urlImage: String)
 }
 
 extension CoinsListEndpoint {
     
     var path: String{
-        return "/data/all/coinlist"
+        switch self {
+        case .getCoinsList():
+            return "/data/all/coinlist"
+        case .loadCoinImage(let url):
+            return url
+        case .loadOverview(let url):
+            return url
+        }
+        
     }
     
     var method: HTTPMethod{

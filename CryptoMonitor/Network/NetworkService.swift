@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import AlamofireImage
 import Alamofire_SwiftyJSON
 import SwiftyJSON
 
@@ -15,14 +16,14 @@ class NetworkService {
     
     //https://min-api.cryptocompare.com/data/all/coinlist
     
-    private static var baseURL: String {
+    public static var baseURL: String {
         return "https://min-api.cryptocompare.com"       /* prod */
     }
     
     static func request(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
         if NetworkReachability.isConnectedToNetwork(){
             Alamofire.request(baseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 completionHandler(dataResponse)
             }
         }
@@ -32,5 +33,31 @@ class NetworkService {
         }
         
     }
+    
+    // MARK: Image downloading
+    
+    func downloadImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
+        return Alamofire.request(url, method: .get).responseImage { response in
+            guard let image = response.result.value else { return }
+            completion(image)
+            self.cache(image, for: url)
+        }
+    }
+    
+    //MARK: = Image Caching
+    
+    static let imageCache = AutoPurgingImageCache(
+        memoryCapacity: UInt64(100*1024*1024),
+        preferredMemoryUsageAfterPurge: UInt64(60*1024*1024)
+    )
+    
+    func cache(_ image: Image, for url: String) {
+        NetworkService.imageCache.add(image, withIdentifier: url)
+    }
+    
+    func cachedImage(for url: String) -> Image? {
+        return NetworkService.imageCache.image(withIdentifier: url)
+    }
+    
     
 }

@@ -13,7 +13,8 @@
 		7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */; };
 		7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF7A1FE3DD4E00B5C8AD /* CoinInfo.swift */; };
 		7C2BAF7D1FE3EB9400B5C8AD /* NetworkParamsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF7C1FE3EB9400B5C8AD /* NetworkParamsKeys.swift */; };
-		7C2BAF801FE4030700B5C8AD /* CoinsListParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF7F1FE4030700B5C8AD /* CoinsListParser.swift */; };
+		7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF851FE4234300B5C8AD /* CoinsListTableViewCell.swift */; };
+		7C2BAF881FE4234300B5C8AD /* CoinsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BAF861FE4234300B5C8AD /* CoinsListTableViewCell.xib */; };
 		7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */; };
 		7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5287541FE14B3F00B885B7 /* NetworkService.swift */; };
 		7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */; };
@@ -51,7 +52,8 @@
 		7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsList.swift; sourceTree = "<group>"; };
 		7C2BAF7A1FE3DD4E00B5C8AD /* CoinInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfo.swift; sourceTree = "<group>"; };
 		7C2BAF7C1FE3EB9400B5C8AD /* NetworkParamsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkParamsKeys.swift; sourceTree = "<group>"; };
-		7C2BAF7F1FE4030700B5C8AD /* CoinsListParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListParser.swift; sourceTree = "<group>"; };
+		7C2BAF851FE4234300B5C8AD /* CoinsListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListTableViewCell.swift; sourceTree = "<group>"; };
+		7C2BAF861FE4234300B5C8AD /* CoinsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsListTableViewCell.xib; sourceTree = "<group>"; };
 		7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		7C5287541FE14B3F00B885B7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
@@ -122,14 +124,6 @@
 			path = CoinsList;
 			sourceTree = "<group>";
 		};
-		7C2BAF7E1FE402C100B5C8AD /* JsonParsers */ = {
-			isa = PBXGroup;
-			children = (
-				7C2BAF7F1FE4030700B5C8AD /* CoinsListParser.swift */,
-			);
-			path = JsonParsers;
-			sourceTree = "<group>";
-		};
 		7C52874E1FE1412100B885B7 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,7 +136,6 @@
 		7C5287531FE14B2300B885B7 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				7C2BAF7E1FE402C100B5C8AD /* JsonParsers */,
 				7C2BAF761FE3D8CB00B5C8AD /* Models */,
 				7C2BAF711FE3C98100B5C8AD /* Endpoints */,
 				7C5287541FE14B3F00B885B7 /* NetworkService.swift */,
@@ -245,6 +238,8 @@
 			children = (
 				7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */,
 				7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */,
+				7C2BAF851FE4234300B5C8AD /* CoinsListTableViewCell.swift */,
+				7C2BAF861FE4234300B5C8AD /* CoinsListTableViewCell.xib */,
 			);
 			path = CoinsList;
 			sourceTree = "<group>";
@@ -376,6 +371,7 @@
 				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
 				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
 				7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */,
+				7C2BAF881FE4234300B5C8AD /* CoinsListTableViewCell.xib in Resources */,
 				7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,12 +410,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -457,7 +455,7 @@
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
-				7C2BAF801FE4030700B5C8AD /* CoinsListParser.swift in Sources */,
+				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
 				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,

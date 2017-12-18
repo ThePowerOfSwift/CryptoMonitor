@@ -7,46 +7,78 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
-class CoinsListViewController: UIViewController {
+class CoinsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var textField: UITextView!
+    
+    @IBOutlet weak var coinsTable: UITableView!
+    
+    var sortedCoins : [CoinInfo] = []
+    
+    var coinsImages : [Data] = []
     
     let networkService = NetworkService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configCoinsTable()
+        //loadCoinsList()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        loadCoinsList()
+    }
+ 
+    // MARK: CoinTable methods
+    func configCoinsTable(){
+        coinsTable.register(UINib(nibName: "CoinsListTableViewCell",
+                                  bundle: Bundle.main),
+                            forCellReuseIdentifier: "CoinsListTableViewCell")
+        coinsTable.delegate = self
+        coinsTable.dataSource = self
+    }
+
+    
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinsListTableViewCell") as? CoinsListTableViewCell else {
+          fatalError("Unable to get cell")
+        }
+        
+        guard let coin = sortedCoins[indexPath.row] as? CoinInfo else {
+            fatalError("Unable to gat coin name")
+        }
+        cell.configure(with: sortedCoins[indexPath.row])
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("cell count:\(sortedCoins.count)")
+        return sortedCoins.count
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(sortedCoins.count)
+    }
+    
+    func loadCoinsList(){
         self.textField.text.removeAll()
         self.startActivityIndicator()
         NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
-            self.textField.text = dataResponse.result.debugDescription
             let coins = CoinsList.init(json: dataResponse.value!)
-            let sortedCoins = coins.coinsList
-            print("bug?")
+            self.sortedCoins = coins.coinsList
+            
+            DispatchQueue.main.async {
+                self.coinsTable.reloadData()
+                 self.textField.text = dataResponse.result.debugDescription
+            }
         })
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
