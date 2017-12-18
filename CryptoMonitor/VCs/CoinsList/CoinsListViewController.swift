@@ -25,7 +25,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configCoinsTable()
-        //loadCoinsList()
+        self.startActivityIndicator()
         // Do any additional setup after loading the view.
     }
     
@@ -66,9 +66,12 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         print(sortedCoins.count)
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128.0
+    }
+    
     func loadCoinsList(){
         self.textField.text.removeAll()
-        self.startActivityIndicator()
         NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             let coins = CoinsList.init(json: dataResponse.value!)

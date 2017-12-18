@@ -38,6 +38,8 @@ class CoinsListTableViewCell: UITableViewCell {
     }
     
     func reset() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
         coinImage.image = nil
         request?.cancel()
         coinName.text = nil
@@ -54,7 +56,6 @@ class CoinsListTableViewCell: UITableViewCell {
     
     func downloadImage() {
         // TODO: Core Data Image Loading
-        activityIndicator.startAnimating()
         request = NetworkService().downloadImage(for: "https://www.cryptocompare.com"+coin.imgUrl, completion: {image in
             self.updateCell(name: self.coin.coinName, image: image)
         })
@@ -62,7 +63,8 @@ class CoinsListTableViewCell: UITableViewCell {
     
     func updateCell(name: String, image: UIImage){
         //self.coinImage.imageFromUrl(urlString: NetworkService.baseURL+img_url)
-        activityIndicator.stopAnimating()
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
         self.coinName.text = name
         self.coinImage.image = image
     }
