@@ -12,8 +12,6 @@ import AlamofireImage
 
 class CoinsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var textField: UITextView!
-    
     @IBOutlet weak var coinsTable: UITableView!
     
     var sortedCoins : [CoinInfo] = []
@@ -25,12 +23,15 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configCoinsTable()
-        self.startActivityIndicator()
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        loadCoinsList()
+        if sortedCoins.count > 0 {
+           reloadCoinsTable()
+        } else {
+            loadCoinsList()
+        }
     }
  
     // MARK: CoinTable methods
@@ -42,7 +43,6 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         coinsTable.dataSource = self
     }
 
-    
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinsListTableViewCell") as? CoinsListTableViewCell else {
@@ -71,17 +71,23 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func loadCoinsList(){
-        self.textField.text.removeAll()
+        if NetworkReachability.isConnectedToNetwork(){
+             self.startActivityIndicator()
+        }
         NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             let coins = CoinsList.init(json: dataResponse.value!)
             self.sortedCoins = coins.coinsList
-            
-            DispatchQueue.main.async {
-                self.coinsTable.reloadData()
-                 self.textField.text = dataResponse.result.debugDescription
-            }
+            self.reloadCoinsTable()
         })
+    }
+    
+    func reloadCoinsTable(){
+        DispatchQueue.main.async {
+            if self.isViewLoaded && (self.view.window != nil) {
+                self.coinsTable.reloadData()
+            }
+        }
     }
     
 }
