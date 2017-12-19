@@ -28,6 +28,7 @@ class CoinInfo {
     var sponsored: Bool = true
     // Custom field - loaded image
     var coinImage: Data?
+    // Base image and description URL
 
     init(coinInfo: JSON) {
         id = coinInfo[NetworkParamsKeys.id.rawValue].intValue

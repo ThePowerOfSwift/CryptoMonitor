@@ -32,6 +32,7 @@
 		7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */; };
 		7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */; };
 		7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */; };
+		7CF88A4E1FE95440000D3FB6 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPairsViewController.xib; sourceTree = "<group>"; };
 		7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
+		7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		C22835E611C33F5B6F4D5D95 /* Pods-CryptoMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		D93C0D0C5B8D2A98ADDC4A94 /* Pods_CryptoMonitorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -129,6 +131,7 @@
 			children = (
 				7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */,
 				7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */,
+				7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF88A4E1FE95440000D3FB6 /* NoInternetViewController.swift in Sources */,
 				7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */,
 				7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */,
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,

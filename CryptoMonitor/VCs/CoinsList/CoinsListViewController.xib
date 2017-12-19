@@ -21,7 +21,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="EtS-h5-FfY">
+                <searchBar contentMode="redraw" placeholder="Enter coin name" translatesAutoresizingMaskIntoConstraints="NO" id="EtS-h5-FfY">
                     <rect key="frame" x="0.0" y="20" width="320" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>

@@ -27,11 +27,17 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if sortedCoins.count > 0 {
-           reloadCoinsTable()
+        if NetworkReachability.isConnectedToNetwork(){
+            self.navigationController?.topViewController?.destroyNoInternetView()
+            if sortedCoins.count > 0 {
+                reloadCoinsTable()
+            } else {
+                loadCoinsList()
+            }
         } else {
-            loadCoinsList()
+            self.navigationController?.topViewController?.showNoInternetView()
         }
+        
     }
  
     // MARK: CoinTable methods
