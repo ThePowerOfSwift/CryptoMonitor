@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UITabBarController, UITabBarControllerDelegate {
+class MainViewController: UITabBarController {
     
     
     override func viewDidLoad() {
@@ -26,8 +26,7 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         let coinsVC = CoinsListViewController()
         let coinsNavigationVC = UINavigationController(rootViewController: coinsVC)
         coinsNavigationVC.tabBarItem = UITabBarItem(title: "Coins", image: #imageLiteral(resourceName: "ic_coins"), selectedImage: #imageLiteral(resourceName: "ic_coins"))
-        coinsNavigationVC.isNavigationBarHidden = true
-        coinsNavigationVC.hidesBarsOnSwipe = true
+        coinsNavigationVC.isNavigationBarHidden = false
         
         let topPairsVC = TopPairsViewController()
         let topPairsNavigationVC = UINavigationController(rootViewController: topPairsVC)
@@ -46,10 +45,4 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.isTranslucent = false
     }
     
-    //Delegate methods
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title) ?")
-        return true;
-    }
-
 }

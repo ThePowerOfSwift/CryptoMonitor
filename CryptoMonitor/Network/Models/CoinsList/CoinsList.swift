@@ -32,7 +32,7 @@ extension CoinsList {
         
         // Parse coins info from data
         for (key, value) in json[NetworkParamsKeys.data.rawValue] {
-            data[key] = CoinInfo.init(coinInfo: value)
+            data[key] = CoinInfo.init(coinInfo: value, baseImageUrl: baseImageUrl, baseLinkUrl: baseLinkUrl)
         }
         
         // Sort coins by name

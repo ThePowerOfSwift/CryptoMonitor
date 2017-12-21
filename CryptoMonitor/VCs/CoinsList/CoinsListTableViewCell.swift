@@ -46,23 +46,22 @@ class CoinsListTableViewCell: UITableViewCell {
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: "https://www.cryptocompare.com" + coin.imgUrl) {
+        if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
             updateCell(name: coin.coinName, image: image)
-//            updateCell(name: coin.coinName, image: UIImage(data: coin.coinImage!,scale:1.0)! )
             return
         }
            downloadImage()
         }
-    
+
     func downloadImage() {
         // TODO: Core Data Image Loading
         if NetworkReachability.isConnectedToNetwork() {
-        
-        request = NetworkService().downloadImage(for: "https://www.cryptocompare.com"+coin.imgUrl, completion: {image in
+
+        request = NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: {image in
             self.updateCell(name: self.coin.coinName, image: image)
         })
         } else {
-//            self.updateCell(name: self.coin.coinName, image: UIImage(named: "no_network")!)
+
         }
     }
     
@@ -80,5 +79,5 @@ class CoinsListTableViewCell: UITableViewCell {
             return name
         }
     }
-    
+
 }

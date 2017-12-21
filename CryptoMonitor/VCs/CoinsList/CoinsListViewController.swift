@@ -27,6 +27,8 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+        self.configureBackBarButtonItem()
         if NetworkReachability.isConnectedToNetwork(){
             self.navigationController?.topViewController?.destroyNoInternetView()
             if sortedCoins.count > 0 {
@@ -39,7 +41,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         
     }
- 
+    
     // MARK: CoinTable methods
     func configCoinsTable(){
         coinsTable.register(UINib(nibName: "CoinsListTableViewCell",
@@ -48,11 +50,11 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         coinsTable.delegate = self
         coinsTable.dataSource = self
     }
-
+    
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinsListTableViewCell") as? CoinsListTableViewCell else {
-          fatalError("Unable to get cell")
+            fatalError("Unable to get cell")
         }
         
         guard let coin = sortedCoins[indexPath.row] as? CoinInfo else {
@@ -64,12 +66,16 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("cell count:\(sortedCoins.count)")
         return sortedCoins.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(sortedCoins.count)
+        // TODO: забыл привязать XIB
+        // сделать метод ЮИ контролеле в котором сетить монету
+        // и потом передавать его навигейшн контролеру
+        let coinsDetailsVC = CoinsDetailsViewController(nibName: "CoinsDetailsViewController", bundle: nil)
+        coinsDetailsVC.setCoin(coin: sortedCoins[indexPath.row])
+        self.navigationController?.pushViewController(coinsDetailsVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -78,7 +84,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func loadCoinsList(){
         if NetworkReachability.isConnectedToNetwork(){
-             self.startActivityIndicator()
+            self.startActivityIndicator()
         }
         NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()

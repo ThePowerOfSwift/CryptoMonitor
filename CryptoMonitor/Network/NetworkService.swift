@@ -44,7 +44,7 @@ class NetworkService {
         }
     }
     
-    //MARK: = Image Caching
+    //MARK: = Image Caching (to RAM Memory)
     
     static let imageCache = AutoPurgingImageCache(
         memoryCapacity: UInt64(100*1024*1024),
@@ -59,5 +59,19 @@ class NetworkService {
         return NetworkService.imageCache.image(withIdentifier: url)
     }
     
+    //MARK: Image Caching (disk Storage)
     
+//    func diskImageDownloader() -> ImageDownloader {
+//        // 1024 * 1024 = MB
+//        let diskCapacity = 150 * 1024 * 1024
+//        let diskCache = URLCache(memoryCapacity: 0, diskCapacity: diskCapacity, diskPath: "image_disk_cache")
+//        let configuration = URLSessionConfiguration.default
+//        configuration.urlCache = diskCache
+//        let cacheCapacity = 100 * 1024 * 1024
+//        let cachePurgeCapacity = 60 * 1024 * 1024
+//        let imageCache: ImageRequestCache = AutoPurgingImageCache(memoryCapacity: UInt64(cacheCapacity), preferredMemoryUsageAfterPurge: UInt64(cachePurgeCapacity))
+//        let downloader = ImageDownloader(configuration: configuration, imageCache: imageCache)
+//        UIImageView.af_sharedImageDownloader = downloader
+//        return downloader
+//    }
 }

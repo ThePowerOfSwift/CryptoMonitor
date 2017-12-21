@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1220DA1CD5677A492E4901B6 /* Pods_CryptoMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */; };
+		7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */; };
+		7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */; };
+		7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */; };
 		7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */; };
 		7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */; };
 		7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */; };
@@ -48,6 +51,9 @@
 /* Begin PBXFileReference section */
 		40B998CD5F1FD0C8889DC127 /* Pods-CryptoMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
+		7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsDetailsViewController.swift; sourceTree = "<group>"; };
+		7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsDetailsViewController.xib; sourceTree = "<group>"; };
 		7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListEndpoint.swift; sourceTree = "<group>"; };
 		7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsList.swift; sourceTree = "<group>"; };
@@ -100,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C249F1A1FEA7E8C00A4AE4F /* CoinDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */,
+				7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */,
+			);
+			path = CoinDetails;
+			sourceTree = "<group>";
+		};
 		7C2BAF711FE3C98100B5C8AD /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +147,7 @@
 				7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */,
 				7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */,
 				7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */,
+				7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -239,6 +255,7 @@
 		7CB709771FE026E4009E73F9 /* CoinsList */ = {
 			isa = PBXGroup;
 			children = (
+				7C249F1A1FEA7E8C00A4AE4F /* CoinDetails */,
 				7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */,
 				7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */,
 				7C2BAF851FE4234300B5C8AD /* CoinsListTableViewCell.swift */,
@@ -370,6 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
+				7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */,
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
 				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
 				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
@@ -459,7 +477,9 @@
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
+				7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */,
 				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,
+				7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
 				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,

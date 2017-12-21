@@ -26,11 +26,11 @@ class CoinInfo {
     var totalCoinsFreeFloat: String = ""
     var sortOrder: Int = 0
     var sponsored: Bool = true
-    // Custom field - loaded image
-    var coinImage: Data?
+    var baseImgUrl: String = ""
+    var baseLink: String = ""
     // Base image and description URL
 
-    init(coinInfo: JSON) {
+    init(coinInfo: JSON, baseImageUrl: String, baseLinkUrl: String) {
         id = coinInfo[NetworkParamsKeys.id.rawValue].intValue
         url = coinInfo[NetworkParamsKeys.url.rawValue].stringValue
         imgUrl = coinInfo[NetworkParamsKeys.imageUrl.rawValue].stringValue
@@ -46,5 +46,8 @@ class CoinInfo {
         totalCoinsFreeFloat = coinInfo[NetworkParamsKeys.totalCoinsFreeFloat.rawValue].stringValue
         sortOrder = coinInfo[NetworkParamsKeys.sortOrder.rawValue].intValue
         sponsored = coinInfo[NetworkParamsKeys.sponsored.rawValue].boolValue
+        
+        baseImgUrl = baseImageUrl
+        baseLink = baseLinkUrl
     }
 }
