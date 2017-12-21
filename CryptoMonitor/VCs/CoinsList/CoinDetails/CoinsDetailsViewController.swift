@@ -7,10 +7,22 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
-class CoinsDetailsViewController: UIViewController {
+class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var coinImage: UIImageView!
+    
+    @IBOutlet weak var coinFullName: UILabel!
+    
+    @IBOutlet weak var coinAlgorithm: UILabel!
+    
+    @IBOutlet weak var coinProofType: UILabel!
+    
+    @IBOutlet weak var coinSupply: UILabel!
+    
+    @IBOutlet weak var coinURL: UITextView!
     
     var coin : CoinInfo? = nil
     
@@ -20,12 +32,9 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateScreen()
         // Do any additional setup after loading the view.
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(self.someAction(_:)))
-        self.label.addGestureRecognizer(gesture)
-        self.label.text = coin!.coinName
         isNavigationBarTransparent = false
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +45,7 @@ class CoinsDetailsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     
-    // or for Swift 3
-    @objc func someAction(_ sender:UITapGestureRecognizer){
-        self.navigationController?.popViewController(animated: true)
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         
@@ -59,6 +65,35 @@ class CoinsDetailsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func updateScreen(){
+        guard let coin = self.coin else {
+            return
+        }
+        
+        if NetworkReachability.isConnectedToNetwork() {
+            if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
+                self.coinImage.image = image
+            } else {
+                NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: { image in
+                    self.coinImage.image = image
+                })
+            }
+        }
+        
+        self.coinFullName.text = coin.fullName
+        self.coinAlgorithm.text = coin.algorithm
+        self.coinProofType.text = coin.proofType
+        self.coinSupply.text = String(coin.totalCoinSupply)
+        
+        let attributedString = NSMutableAttributedString(string: "Want read more about coin? Check link below!")
+        attributedString.append(NSAttributedString(string: "\n"+coin.baseLink+coin.url))
+        self.coinURL.attributedText = attributedString
+        
+        }
+    
+    // MARk: TextField delegate methods
+    
     
     // CoinInfo
     var id: Int = 0

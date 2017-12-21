@@ -35,7 +35,7 @@ class NetworkService {
     }
     
     // MARK: Image downloading
-    
+    @discardableResult
     func downloadImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
         return Alamofire.request(url, method: .get).responseImage { response in
             guard let image = response.result.value else { return }

@@ -56,12 +56,9 @@ class CoinsListTableViewCell: UITableViewCell {
     func downloadImage() {
         // TODO: Core Data Image Loading
         if NetworkReachability.isConnectedToNetwork() {
-
         request = NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: {image in
             self.updateCell(name: self.coin.coinName, image: image)
         })
-        } else {
-
         }
     }
     
