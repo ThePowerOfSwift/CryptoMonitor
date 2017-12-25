@@ -86,9 +86,9 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
         self.coinProofType.text = coin.proofType
         self.coinSupply.text = String(coin.totalCoinSupply)
         
-        let attributedString = NSMutableAttributedString(string: "Want read more about coin? Check link below!")
-        attributedString.append(NSAttributedString(string: "\n"+coin.baseLink+coin.url))
-        self.coinURL.attributedText = attributedString
+        var attributedString = "Want read more about coin? Check link below!"
+        attributedString.append("\n"+coin.baseLink+coin.url)
+        self.coinURL.text = attributedString
         
         }
     

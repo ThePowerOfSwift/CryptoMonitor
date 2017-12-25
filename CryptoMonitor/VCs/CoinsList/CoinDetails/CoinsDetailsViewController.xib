@@ -57,14 +57,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Want read more about coin? Check link below!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-Zh-JQ5">
-                    <rect key="frame" x="10" y="190" width="294" height="70"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Want read more about coin? Check link below!" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cHc-Zh-JQ5">
+                    <rect key="frame" x="10" y="190" width="294" height="90"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="70" id="Ea6-0o-TO6"/>
+                        <constraint firstAttribute="height" constant="90" id="Ea6-0o-TO6"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
                 </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

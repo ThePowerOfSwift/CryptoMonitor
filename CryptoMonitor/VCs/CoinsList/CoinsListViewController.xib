@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CoinsListViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
+                <outlet property="coinsSearchBar" destination="EtS-h5-FfY" id="41X-0b-foZ"/>
                 <outlet property="coinsTable" destination="6Gu-DD-db7" id="uaf-Ad-qyG"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

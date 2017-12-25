@@ -10,11 +10,17 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class CoinsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CoinsListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     
     @IBOutlet weak var coinsTable: UITableView!
     
+    @IBOutlet weak var coinsSearchBar: UISearchBar!
+    
     var sortedCoins : [CoinInfo] = []
+    
+    var searchCoins : [CoinInfo] = []
+    
+    var isSearch = false
     
     var coinsImages : [Data] = []
     
@@ -23,6 +29,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         configCoinsTable()
+        self.coinsSearchBar.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -42,7 +49,8 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         
     }
     
-    // MARK: CoinTable methods
+    // MARK: CoinTable delegate methods
+    
     func configCoinsTable(){
         coinsTable.register(UINib(nibName: "CoinsListTableViewCell",
                                   bundle: Bundle.main),
@@ -56,17 +64,30 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinsListTableViewCell") as? CoinsListTableViewCell else {
             fatalError("Unable to get cell")
         }
-        
-        guard let coin = sortedCoins[indexPath.row] as? CoinInfo else {
-            fatalError("Unable to gat coin name")
+        if !isSearch {
+            guard let coin = sortedCoins[indexPath.row] as? CoinInfo else {
+                fatalError("Unable to gat coin name")
+            }
+            cell.configure(with: sortedCoins[indexPath.row])
+            
+            return cell
+        } else {
+            guard let coin = searchCoins[indexPath.row] as? CoinInfo else {
+                fatalError("Unable to gat coin name")
+            }
+            cell.configure(with: searchCoins[indexPath.row])
+            return cell
         }
-        cell.configure(with: sortedCoins[indexPath.row])
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sortedCoins.count
+        if !isSearch{
+            return sortedCoins.count
+        } else {
+            return searchCoins.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -74,7 +95,11 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         // сделать метод ЮИ контролеле в котором сетить монету
         // и потом передавать его навигейшн контролеру
         let coinsDetailsVC = CoinsDetailsViewController(nibName: "CoinsDetailsViewController", bundle: nil)
-        coinsDetailsVC.setCoin(coin: sortedCoins[indexPath.row])
+        if !isSearch {
+            coinsDetailsVC.setCoin(coin: sortedCoins[indexPath.row])
+        } else {
+            coinsDetailsVC.setCoin(coin: searchCoins[indexPath.row])
+        }
         self.navigationController?.pushViewController(coinsDetailsVC, animated: true)
     }
     
@@ -101,5 +126,49 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
+    
+    // MARK: Search bar delegates methods
+    
+    func searchBar(_: UISearchBar, textDidChange: String){
+       //    Tells the delegate that the user changed the search text.
+        if textDidChange.count == 0 {
+            self.isSearch = false
+        } else {
+            self.isSearch = true
+            self.searchForCoins(searchString: textDidChange)
+        }
+        self.coinsTable.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        if searchBar.text?.count == 0 {
+            self.isSearch = false
+            searchBar.resignFirstResponder()
+        } else {
+            self.isSearch = true
+            self.searchForCoins(searchString: searchBar.text!)
+        }
+        searchBar.resignFirstResponder()
+        self.coinsTable.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        self.isSearch = false
+        searchBar.resignFirstResponder()
+        self.coinsTable.reloadData()
+    }
+    
+    // MARK: search coins localy
+    func searchForCoins(searchString: String) {
+        self.searchCoins.removeAll()
+        for coin in sortedCoins{
+            if (coin.name.lowercased().range(of: searchString.lowercased()) != nil) {
+                searchCoins.append(coin)
+            }
+        }
+        searchCoins.sort { return $0.name < $1.name }
+    }
+
+    
     
 }
