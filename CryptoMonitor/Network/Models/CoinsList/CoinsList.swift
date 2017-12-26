@@ -21,17 +21,17 @@ struct CoinsList {
 
 extension CoinsList {
     init(json: JSON){
-        response = json[NetworkParamsKeys.response.rawValue].stringValue
-        message = json[NetworkParamsKeys.message.rawValue].stringValue
-        baseImageUrl = json[NetworkParamsKeys.baseImageUrl.rawValue].stringValue
-        baseLinkUrl = json[NetworkParamsKeys.baseLinkUrl.rawValue].stringValue
+        response = json[NetworkParamsKeys.CoinList.response.rawValue].stringValue
+        message = json[NetworkParamsKeys.CoinList.message.rawValue].stringValue
+        baseImageUrl = json[NetworkParamsKeys.CoinList.baseImageUrl.rawValue].stringValue
+        baseLinkUrl = json[NetworkParamsKeys.CoinList.baseLinkUrl.rawValue].stringValue
         
-        for (key, value) in json[NetworkParamsKeys.defaultWatchlist.rawValue]{
+        for (key, value) in json[NetworkParamsKeys.CoinList.defaultWatchlist.rawValue]{
             defaultWatchlist[key] = value.stringValue
         }
         
         // Parse coins info from data
-        for (key, value) in json[NetworkParamsKeys.data.rawValue] {
+        for (key, value) in json[NetworkParamsKeys.CoinList.data.rawValue] {
             data[key] = CoinInfo.init(coinInfo: value, baseImageUrl: baseImageUrl, baseLinkUrl: baseLinkUrl)
         }
         

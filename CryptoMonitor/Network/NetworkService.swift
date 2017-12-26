@@ -14,8 +14,6 @@ import SwiftyJSON
 
 class NetworkService {
     
-    //https://min-api.cryptocompare.com/data/all/coinlist
-    
     public static var baseURL: String {
         return "https://min-api.cryptocompare.com"       /* prod */
     }

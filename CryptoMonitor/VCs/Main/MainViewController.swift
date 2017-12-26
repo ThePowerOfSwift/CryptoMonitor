@@ -35,6 +35,7 @@ class MainViewController: UITabBarController {
         let equipmentVC = EquipmentViewController()
         let equipmentNavigationVC = UINavigationController(rootViewController: equipmentVC)
         equipmentNavigationVC.tabBarItem = UITabBarItem(title: "Equipment", image: #imageLiteral(resourceName: "ic_equipment"), selectedImage: #imageLiteral(resourceName: "ic_equipment"))
+        equipmentNavigationVC.isNavigationBarHidden = false
         
         let aboutVC = AboutAppViewController()
         let aboutNavigationVC = UINavigationController(rootViewController: aboutVC)

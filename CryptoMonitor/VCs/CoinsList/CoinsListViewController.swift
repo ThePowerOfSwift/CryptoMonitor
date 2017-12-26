@@ -129,32 +129,39 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     // MARK: Search bar delegates methods
     
-    func searchBar(_: UISearchBar, textDidChange: String){
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
        //    Tells the delegate that the user changed the search text.
-        if textDidChange.count == 0 {
+        if searchText == "" {
             self.isSearch = false
         } else {
             self.isSearch = true
-            self.searchForCoins(searchString: textDidChange)
+            self.searchForCoins(searchString: searchText)
         }
         self.coinsTable.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        searchBar.resignFirstResponder()
         if searchBar.text?.count == 0 {
             self.isSearch = false
-            searchBar.resignFirstResponder()
         } else {
             self.isSearch = true
             self.searchForCoins(searchString: searchBar.text!)
         }
-        searchBar.resignFirstResponder()
         self.coinsTable.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
-        self.isSearch = false
         searchBar.resignFirstResponder()
+        guard let text = searchBar.text else {
+            return
+        }
+        if text.count == 0 || text == "" {
+            self.isSearch = false
+        } else {
+           self.isSearch = true
+           self.searchForCoins(searchString: text)
+        }
         self.coinsTable.reloadData()
     }
     

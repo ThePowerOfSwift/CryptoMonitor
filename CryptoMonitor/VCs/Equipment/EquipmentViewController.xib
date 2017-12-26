@@ -12,6 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EquipmentViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="PjE-Up-luJ" id="DnR-h5-tMH"/>
+                <outlet property="segmentedControl" destination="Zgh-Pe-JXK" id="V8q-Bg-RhV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +22,36 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Equipment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5nj-kH-ped">
-                    <rect key="frame" x="130" y="329" width="116.5" height="30"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Zgh-Pe-JXK">
+                    <rect key="frame" x="20" y="30" width="335" height="29"/>
+                    <segments>
+                        <segment title="Companies"/>
+                        <segment title="Coins"/>
+                    </segments>
+                    <connections>
+                        <action selector="switchTab:" destination="-1" eventType="valueChanged" id="zsl-EF-YHE"/>
+                    </connections>
+                </segmentedControl>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PjE-Up-luJ">
+                    <rect key="frame" x="10" y="68" width="355" height="540"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="5nj-kH-ped" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="t5e-lU-J2o"/>
-                <constraint firstItem="5nj-kH-ped" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="z2D-rF-hJf"/>
+                <constraint firstItem="PjE-Up-luJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="AdQ-Ho-4Up"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="PjE-Up-luJ" secondAttribute="bottom" constant="10" id="EWp-gg-tWQ"/>
+                <constraint firstItem="PjE-Up-luJ" firstAttribute="top" secondItem="Zgh-Pe-JXK" secondAttribute="bottom" constant="10" id="KAD-bX-nor"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="PjE-Up-luJ" secondAttribute="trailing" constant="10" id="YaL-6s-kWi"/>
+                <constraint firstItem="Zgh-Pe-JXK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Zma-iY-xja"/>
+                <constraint firstItem="PjE-Up-luJ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="bRi-oD-LWm"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Zgh-Pe-JXK" secondAttribute="trailing" constant="20" id="eG0-Sf-2js"/>
+                <constraint firstItem="Zgh-Pe-JXK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="eVP-lJ-QBd"/>
+                <constraint firstItem="Zgh-Pe-JXK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="jfD-B4-ozk"/>
             </constraints>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.5" y="64.5"/>
         </view>
     </objects>
 </document>

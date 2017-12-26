@@ -21,6 +21,10 @@
 		7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */; };
 		7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5287541FE14B3F00B885B7 /* NetworkService.swift */; };
 		7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */; };
+		7C70080C1FF27A2400EB3F28 /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */; };
+		7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */; };
+		7C7008101FF27A4900EB3F28 /* MiningCoinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */; };
+		7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */; };
 		7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */; };
 		7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */; };
 		7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */; };
@@ -64,6 +68,10 @@
 		7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		7C5287541FE14B3F00B885B7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
+		7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
+		7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompaniesViewController.xib; sourceTree = "<group>"; };
+		7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningCoinsViewController.swift; sourceTree = "<group>"; };
+		7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiningCoinsViewController.xib; sourceTree = "<group>"; };
 		7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +169,32 @@
 				7C2BAF7C1FE3EB9400B5C8AD /* NetworkParamsKeys.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7C7008071FF279D000EB3F28 /* CompaniesTab */ = {
+			isa = PBXGroup;
+			children = (
+				7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */,
+				7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */,
+			);
+			name = CompaniesTab;
+			sourceTree = "<group>";
+		};
+		7C7008091FF279E900EB3F28 /* CoinsTab */ = {
+			isa = PBXGroup;
+			children = (
+				7C7008131FF28AE800EB3F28 /* New Group */,
+				7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */,
+				7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */,
+			);
+			name = CoinsTab;
+			sourceTree = "<group>";
+		};
+		7C7008131FF28AE800EB3F28 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		7C79F7231FE1285E008874D6 /* About */ = {
@@ -276,6 +310,8 @@
 		7CB709811FE02E9E009E73F9 /* Equipment */ = {
 			isa = PBXGroup;
 			children = (
+				7C7008091FF279E900EB3F28 /* CoinsTab */,
+				7C7008071FF279D000EB3F28 /* CompaniesTab */,
 				7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */,
 				7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */,
 			);
@@ -388,6 +424,8 @@
 			files = (
 				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
 				7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */,
+				7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */,
+				7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */,
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
 				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
 				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
@@ -433,6 +471,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -440,6 +479,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -480,11 +520,13 @@
 				7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */,
 				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,
 				7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */,
+				7C7008101FF27A4900EB3F28 /* MiningCoinsViewController.swift in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
 				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,
 				7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */,
 				7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */,
+				7C70080C1FF27A2400EB3F28 /* CompaniesViewController.swift in Sources */,
 				7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */,
 				7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */,
 				7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */,

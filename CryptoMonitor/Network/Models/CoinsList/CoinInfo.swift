@@ -31,21 +31,21 @@ class CoinInfo {
     // Base image and description URL
 
     init(coinInfo: JSON, baseImageUrl: String, baseLinkUrl: String) {
-        id = coinInfo[NetworkParamsKeys.id.rawValue].intValue
-        url = coinInfo[NetworkParamsKeys.url.rawValue].stringValue
-        imgUrl = coinInfo[NetworkParamsKeys.imageUrl.rawValue].stringValue
-        name = coinInfo[NetworkParamsKeys.name.rawValue].stringValue
-        symbol = coinInfo[NetworkParamsKeys.symbol.rawValue].stringValue
-        coinName = coinInfo[NetworkParamsKeys.coinName.rawValue].stringValue
-        fullName = coinInfo[NetworkParamsKeys.fullName.rawValue].stringValue
-        algorithm = coinInfo[NetworkParamsKeys.algorithm.rawValue].stringValue
-        proofType = coinInfo[NetworkParamsKeys.proofType.rawValue].stringValue
-        fullyPremined = coinInfo[NetworkParamsKeys.fullyPremined.rawValue].intValue
-        totalCoinSupply = coinInfo[NetworkParamsKeys.totalCoinSupply.rawValue].intValue
-        preMinedValue = coinInfo[NetworkParamsKeys.preMinedValue.rawValue].stringValue
-        totalCoinsFreeFloat = coinInfo[NetworkParamsKeys.totalCoinsFreeFloat.rawValue].stringValue
-        sortOrder = coinInfo[NetworkParamsKeys.sortOrder.rawValue].intValue
-        sponsored = coinInfo[NetworkParamsKeys.sponsored.rawValue].boolValue
+        id = coinInfo[NetworkParamsKeys.CoinList.id.rawValue].intValue
+        url = coinInfo[NetworkParamsKeys.CoinList.url.rawValue].stringValue
+        imgUrl = coinInfo[NetworkParamsKeys.CoinList.imageUrl.rawValue].stringValue
+        name = coinInfo[NetworkParamsKeys.CoinList.name.rawValue].stringValue
+        symbol = coinInfo[NetworkParamsKeys.CoinList.symbol.rawValue].stringValue
+        coinName = coinInfo[NetworkParamsKeys.CoinList.coinName.rawValue].stringValue
+        fullName = coinInfo[NetworkParamsKeys.CoinList.fullName.rawValue].stringValue
+        algorithm = coinInfo[NetworkParamsKeys.CoinList.algorithm.rawValue].stringValue
+        proofType = coinInfo[NetworkParamsKeys.CoinList.proofType.rawValue].stringValue
+        fullyPremined = coinInfo[NetworkParamsKeys.CoinList.fullyPremined.rawValue].intValue
+        totalCoinSupply = coinInfo[NetworkParamsKeys.CoinList.totalCoinSupply.rawValue].intValue
+        preMinedValue = coinInfo[NetworkParamsKeys.CoinList.preMinedValue.rawValue].stringValue
+        totalCoinsFreeFloat = coinInfo[NetworkParamsKeys.CoinList.totalCoinsFreeFloat.rawValue].stringValue
+        sortOrder = coinInfo[NetworkParamsKeys.CoinList.sortOrder.rawValue].intValue
+        sponsored = coinInfo[NetworkParamsKeys.CoinList.sponsored.rawValue].boolValue
         
         baseImgUrl = baseImageUrl
         baseLink = baseLinkUrl
