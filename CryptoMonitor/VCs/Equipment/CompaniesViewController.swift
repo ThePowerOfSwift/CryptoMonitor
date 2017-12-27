@@ -27,7 +27,7 @@ class CompaniesViewController: UIViewController {
         if let data = miningData {
             var result = ""
             for (key, value) in data {
-                result.append(key)
+                result.append(key+" ")
             }
             textView.text = result
         }

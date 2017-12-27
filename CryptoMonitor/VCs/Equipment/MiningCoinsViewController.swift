@@ -28,7 +28,7 @@ class MiningCoinsViewController: UIViewController {
         if let data = coinData{
             var result = ""
             for(key, value) in data {
-                result.append(key)
+                result.append(key+" ")
             }
             textView.text = result
         }

@@ -14,15 +14,23 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var coinImage: UIImageView!
     
-    @IBOutlet weak var coinFullName: UILabel!
-    
-    @IBOutlet weak var coinAlgorithm: UILabel!
-    
-    @IBOutlet weak var coinProofType: UILabel!
-    
-    @IBOutlet weak var coinSupply: UILabel!
-    
     @IBOutlet weak var coinURL: UITextView!
+    
+    @IBOutlet weak var fullNameLabel: UILabel!
+    
+    @IBOutlet weak var symbolLabel: UILabel!
+    
+    @IBOutlet weak var algorithmLabel: UILabel!
+    
+    @IBOutlet weak var proofTypeLabel: UILabel!
+    
+    @IBOutlet weak var fullyPreminedLabel: UILabel!
+    
+    @IBOutlet weak var totalSupplyLabel: UILabel!
+    
+    @IBOutlet weak var preMinedValueLabel: UILabel!
+    
+    @IBOutlet weak var sponsoredLabel: UILabel!
     
     var coin : CoinInfo? = nil
     
@@ -73,7 +81,7 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
         
         if NetworkReachability.isConnectedToNetwork() {
             if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
-                self.coinImage.image = image
+                coinImage.image = image
             } else {
                 NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: { image in
                     self.coinImage.image = image
@@ -81,16 +89,29 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
             }
         }
         
-        self.coinFullName.text = coin.fullName
-        self.coinAlgorithm.text = coin.algorithm
-        self.coinProofType.text = coin.proofType
-        self.coinSupply.text = String(coin.totalCoinSupply)
+        fullNameLabel.text = coin.fullName
+        symbolLabel.text = "Symbol: "+coin.symbol
+        algorithmLabel.text = "Algorithm: "+coin.algorithm
+        proofTypeLabel.text = "Proof Type: "+coin.proofType
+        fullyPreminedLabel.text = "Fully premined: "+String(coin.fullyPremined)
+        totalSupplyLabel.text = "Total supply: "+String(coin.totalCoinSupply)
+        preMinedValueLabel.text = "Pre-mined value: "+coin.preMinedValue
+        sponsoredLabel.text = "Sponsored: "+convertBool(coin.sponsored)
         
-        var attributedString = "Want read more about coin? Check link below!"
+        var attributedString = "Want read more about coin?\nCheck link below!"
         attributedString.append("\n"+coin.baseLink+coin.url)
-        self.coinURL.text = attributedString
+        coinURL.text = attributedString
         
         }
+    
+    func convertBool(_ b: Bool) -> String{
+        switch b {
+        case true:
+            return "Yes"
+        case false:
+            return "No"
+        }
+    }
     
     // MARk: TextField delegate methods
     
