@@ -12,6 +12,8 @@ class MiningCoinsViewController: UIViewController {
     
     var coinData: [String: CoinData]?
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,12 @@ class MiningCoinsViewController: UIViewController {
     }
 
     func updateUI(){
-        
+        if let data = coinData{
+            var result = ""
+            for(key, value) in data {
+                result.append(key)
+            }
+            textView.text = result
+        }
     }
 }

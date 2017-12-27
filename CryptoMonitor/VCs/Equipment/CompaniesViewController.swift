@@ -24,7 +24,13 @@ class CompaniesViewController: UIViewController {
     }
     
     func updateUI(){
-        
+        if let data = miningData {
+            var result = ""
+            for (key, value) in data {
+                result.append(key)
+            }
+            textView.text = result
+        }
     }
     
 }

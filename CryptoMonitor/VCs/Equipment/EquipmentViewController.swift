@@ -69,6 +69,7 @@ class EquipmentViewController: UIViewController {
                 selectedVC = companiesVC
             }
             changeVC(vc: selectedVC!)
+            updateCurrentTab(selectedTab)
         case 1:
             if miningCoinsVC == nil{
                 miningCoinsVC = MiningCoinsViewController()
@@ -77,6 +78,7 @@ class EquipmentViewController: UIViewController {
                 selectedVC = miningCoinsVC
             }
             changeVC(vc: selectedVC!)
+            updateCurrentTab(selectedTab)
         default:
             return
         }
@@ -90,7 +92,6 @@ class EquipmentViewController: UIViewController {
         
         self.contentView.addSubview(vc.view)
         self.currentViewController = vc
-        updateCurrentTab(vc: vc)
     }
     
     // MARK: Download from Network methods
@@ -103,9 +104,8 @@ class EquipmentViewController: UIViewController {
                     self.equipment = Equipment.init(json: dataResponse.result.value!)
                     self.stopActivityIndicator()
                     DispatchQueue.main.async {
-                        self.companiesVC?.textView.text = self.equipment?.response
+                self.updateCurrentTab(self.segmentedControl.selectedSegmentIndex)
                     }
-                    
                 })
             } else {
                 self.navigationController?.topViewController?.showNoInternetView()
@@ -115,17 +115,19 @@ class EquipmentViewController: UIViewController {
     
     // MARK: Update UI after downloading data
     
-    func updateCurrentTab(vc: UIViewController){
+    func updateCurrentTab(_ tabIndex: Int){
         guard let equipment1 = equipment else {
             return
         }
-        if let vc1 = vc as? CompaniesViewController {
+        switch tabIndex {
+        case 0:
             companiesVC?.setData(miningData: equipment1.miningData)
-            vc1.updateUI()
-        }
-        if let vc2 = vc as? MiningCoinsViewController {
+            companiesVC?.updateUI()
+        case 1:
             miningCoinsVC?.setData(coinData: equipment1.coinData)
-            vc2.updateUI()
+            miningCoinsVC?.updateUI()
+        default:
+            return
         }
     }
     
