@@ -14,13 +14,17 @@ import SwiftyJSON
 
 class NetworkService {
     
-    public static var baseURL: String {
-        return "https://min-api.cryptocompare.com"       /* prod */
+    public static var apiBaseURL: String {
+        return "https://min-api.cryptocompare.com"
     }
     
-    static func request(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
+    public static var webBaseURL: String {
+        return "https://www.cryptocompare.com"
+    }
+    
+    static func requestApi(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
         if NetworkReachability.isConnectedToNetwork(){
-            Alamofire.request(baseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
+            Alamofire.request(apiBaseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
             DispatchQueue.global().async {
                 completionHandler(dataResponse)
             }
@@ -29,7 +33,19 @@ class NetworkService {
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
-        
+    }
+    
+    static func requestWeb(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
+        if NetworkReachability.isConnectedToNetwork(){
+            Alamofire.request(webBaseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
+                DispatchQueue.global().async {
+                    completionHandler(dataResponse)
+                }
+            }
+        } else{
+            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
     
     // MARK: Image downloading

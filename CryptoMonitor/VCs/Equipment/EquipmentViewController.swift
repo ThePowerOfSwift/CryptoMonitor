@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class EquipmentViewController: UIViewController {
 
@@ -20,9 +21,14 @@ class EquipmentViewController: UIViewController {
     
     var miningCoinsVC: MiningCoinsViewController?
     
+    var equipment : Equipment?
+    
+    // MARK: ViewController methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentedControl.selectedSegmentIndex = 0
+        loadData()
         self.switchTab(segmentedControl)
         // Do any additional setup after loading the view.
     }
@@ -33,6 +39,12 @@ class EquipmentViewController: UIViewController {
             currentVC.viewWillDisappear(animated)
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.isNavigationBarHidden = true
+    }
+    
+    // MARK: SegmentedControll methods
 
     @IBAction func switchTab(_ sender: UISegmentedControl) {
         
@@ -49,14 +61,18 @@ class EquipmentViewController: UIViewController {
         switch selectedTab {
         case 0:
             if companiesVC == nil{
-                selectedVC = CompaniesViewController()
+                companiesVC = CompaniesViewController()
+//                companiesVC?.setData(miningData: )
+                selectedVC = companiesVC
             } else {
                 selectedVC = companiesVC
             }
             changeVC(vc: selectedVC!)
         case 1:
             if miningCoinsVC == nil{
-                selectedVC = MiningCoinsViewController()
+                miningCoinsVC = MiningCoinsViewController()
+//                miningCoinsVC?.setData(coinData: )
+                selectedVC = miningCoinsVC
             } else {
                 selectedVC = miningCoinsVC
             }
@@ -76,13 +92,23 @@ class EquipmentViewController: UIViewController {
         self.currentViewController = vc
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    // MARK: Download from Network methods
     
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.isNavigationBarHidden = true
+    func loadData(){
+        if NetworkReachability.isConnectedToNetwork(){
+            self.startActivityIndicator()
+            NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler:{ (dataResponse) -> Void in
+                self.stopActivityIndicator()
+                DispatchQueue.main.async {
+                    self.companiesVC?.textView.text = dataResponse.result.debugDescription
+                }
+                
+            })
+        } else {
+            self.navigationController?.topViewController?.showNoInternetView()
+        }
+        
+        
     }
     
 }

@@ -65,16 +65,10 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             fatalError("Unable to get cell")
         }
         if !isSearch {
-            guard let coin = sortedCoins[indexPath.row] as? CoinInfo else {
-                fatalError("Unable to gat coin name")
-            }
             cell.configure(with: sortedCoins[indexPath.row])
             
             return cell
         } else {
-            guard let coin = searchCoins[indexPath.row] as? CoinInfo else {
-                fatalError("Unable to gat coin name")
-            }
             cell.configure(with: searchCoins[indexPath.row])
             return cell
         }
@@ -111,7 +105,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         if NetworkReachability.isConnectedToNetwork(){
             self.startActivityIndicator()
         }
-        NetworkService.request(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
+        NetworkService.requestApi(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             let coins = CoinsList.init(json: dataResponse.value!)
             self.sortedCoins = coins.coinsList
