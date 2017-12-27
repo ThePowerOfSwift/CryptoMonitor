@@ -22,4 +22,7 @@ class MiningCoinsViewController: UIViewController {
         self.coinData = coinData
     }
 
+    func updateUI(){
+        
+    }
 }

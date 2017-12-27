@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import SwiftyJSON
+import Alamofire_SwiftyJSON
 
 class EquipmentViewController: UIViewController {
 
@@ -27,9 +29,7 @@ class EquipmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.segmentedControl.selectedSegmentIndex = 0
         loadData()
-        self.switchTab(segmentedControl)
         // Do any additional setup after loading the view.
     }
     
@@ -42,6 +42,8 @@ class EquipmentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        self.segmentedControl.selectedSegmentIndex = 0
+        self.switchTab(segmentedControl)
     }
     
     // MARK: SegmentedControll methods
@@ -62,7 +64,6 @@ class EquipmentViewController: UIViewController {
         case 0:
             if companiesVC == nil{
                 companiesVC = CompaniesViewController()
-//                companiesVC?.setData(miningData: )
                 selectedVC = companiesVC
             } else {
                 selectedVC = companiesVC
@@ -71,7 +72,6 @@ class EquipmentViewController: UIViewController {
         case 1:
             if miningCoinsVC == nil{
                 miningCoinsVC = MiningCoinsViewController()
-//                miningCoinsVC?.setData(coinData: )
                 selectedVC = miningCoinsVC
             } else {
                 selectedVC = miningCoinsVC
@@ -90,25 +90,43 @@ class EquipmentViewController: UIViewController {
         
         self.contentView.addSubview(vc.view)
         self.currentViewController = vc
+        updateCurrentTab(vc: vc)
     }
     
     // MARK: Download from Network methods
     
     func loadData(){
-        if NetworkReachability.isConnectedToNetwork(){
-            self.startActivityIndicator()
-            NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler:{ (dataResponse) -> Void in
-                self.stopActivityIndicator()
-                DispatchQueue.main.async {
-                    self.companiesVC?.textView.text = dataResponse.result.debugDescription
-                }
-                
-            })
-        } else {
-            self.navigationController?.topViewController?.showNoInternetView()
+        if equipment == nil {
+            if NetworkReachability.isConnectedToNetwork(){
+                self.startActivityIndicator()
+                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler:{ (dataResponse) -> Void in
+                    self.equipment = Equipment.init(json: dataResponse.result.value!)
+                    self.stopActivityIndicator()
+                    DispatchQueue.main.async {
+                        self.companiesVC?.textView.text = self.equipment?.response
+                    }
+                    
+                })
+            } else {
+                self.navigationController?.topViewController?.showNoInternetView()
+            }
         }
-        
-        
+    }
+    
+    // MARK: Update UI after downloading data
+    
+    func updateCurrentTab(vc: UIViewController){
+        guard let equipment1 = equipment else {
+            return
+        }
+        if let vc1 = vc as? CompaniesViewController {
+            companiesVC?.setData(miningData: equipment1.miningData)
+            vc1.updateUI()
+        }
+        if let vc2 = vc as? MiningCoinsViewController {
+            miningCoinsVC?.setData(coinData: equipment1.coinData)
+            vc2.updateUI()
+        }
     }
     
 }

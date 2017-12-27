@@ -23,4 +23,8 @@ class CompaniesViewController: UIViewController {
         self.miningData = miningData
     }
     
+    func updateUI(){
+        
+    }
+    
 }
