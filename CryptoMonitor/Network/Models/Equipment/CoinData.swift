@@ -10,20 +10,29 @@ import Foundation
 import SwiftyJSON
 
 struct CoinData {
-    var priceUSD = "PriceUSD"
-    var symbol = "Symbol"
+    var priceUSD = 0.0
+    var symbol = ""
     var difficultyAdjustment = "DifficultyAdjustment"
     var blockRewardReduction = "BlockRewardReduction"
-    var blockNumber = "BlockNumber"
-    var BlockTime = "BlockTime"
-    var netHashesPerSecond = "NetHashesPerSecond"
-    var totalCoinsMined = "TotalCoinsMined"
-    var previousTotalCoinsMined = "PreviousTotalCoinsMined"
-    var blockReward = "BlockReward"
+    var blockNumber = 0
+    var blockTime = 0
+    var netHashesPerSecond = 0.0
+    var totalCoinsMined = 0.0
+    var previousTotalCoinsMined = 0.0
+    var blockReward = 0.0
 }
 
 extension CoinData {
     init(json: JSON) {
-        print("fuck")
+        priceUSD = json[NetworkParamsKeys.Equipment.priceUSD.rawValue].doubleValue
+        symbol = json[NetworkParamsKeys.Equipment.symbol.rawValue].stringValue
+        difficultyAdjustment = json[NetworkParamsKeys.Equipment.difficultyAdjustment.rawValue].stringValue
+        blockRewardReduction = json[NetworkParamsKeys.Equipment.blockRewardReduction.rawValue].stringValue
+        blockNumber = json[NetworkParamsKeys.Equipment.blockNumber.rawValue].intValue
+        blockTime = json[NetworkParamsKeys.Equipment.blockTime.rawValue].intValue
+        netHashesPerSecond = json[NetworkParamsKeys.Equipment.netHashesPerSecond.rawValue].doubleValue
+        totalCoinsMined = json[NetworkParamsKeys.Equipment.totalCoinsMined.rawValue].doubleValue
+        previousTotalCoinsMined = json[NetworkParamsKeys.Equipment.previousTotalCoinsMined.rawValue].doubleValue
+        blockReward = json[NetworkParamsKeys.Equipment.blockReward.rawValue].doubleValue
     }
 }

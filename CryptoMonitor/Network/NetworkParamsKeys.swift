@@ -70,7 +70,7 @@ enum NetworkParamsKeys{
         case difficultyAdjustment = "DifficultyAdjustment"
         case blockRewardReduction = "BlockRewardReduction"
         case blockNumber = "BlockNumber"
-        case BlockTime = "BlockTime"
+        case blockTime = "BlockTime"
         case netHashesPerSecond = "NetHashesPerSecond"
         case totalCoinsMined = "TotalCoinsMined"
         case previousTotalCoinsMined = "PreviousTotalCoinsMined"

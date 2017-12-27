@@ -10,15 +10,25 @@ import Foundation
 import SwiftyJSON
 
 struct Equipment{
-    var response = "Response"
-    var message = "Message"
-    var type = "Type"
-    var miningData = "MiningData"
-    var coinData = "CoinData"
+    var response = ""
+    var message = ""
+    var type = ""
+    var miningData: [String: MiningData] = [:]
+    var coinData: [String: CoinData] = [:]
 }
 
 extension Equipment {
     init(json: JSON) {
-        print("fuck")
+       response = json[NetworkParamsKeys.Equipment.response.rawValue].stringValue
+        message = json[NetworkParamsKeys.Equipment.message.rawValue].stringValue
+        type = json[NetworkParamsKeys.Equipment.type.rawValue].stringValue
+        
+        for (key, value) in json[NetworkParamsKeys.Equipment.miningData.rawValue]{
+            miningData[key] = MiningData.init(json: value)
+        }
+        
+        for(key, value) in json[NetworkParamsKeys.Equipment.coinData.rawValue]{
+            coinData[key] = CoinData.init(json: value)
+        }
     }
 }
