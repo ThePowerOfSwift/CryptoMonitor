@@ -7,37 +7,60 @@
 //
 
 import UIKit
+import SnapKit
 
 extension UIViewController {
     
     var viewTag: Int { return 1000 }
     
-    var keyboardHeight: CGFloat { return keyBoardWillShow(notification: NSNotification.init(name: .UIKeyboardWillShow, object: nil, userInfo: nil)) }
+    
     
     func showNoResultView(){
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyBoardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+        // Find search bar
+        var searchBar : UISearchBar?
+        for subview in self.view.subviews {
+            if subview is UISearchBar {
+                searchBar = subview as? UISearchBar
+            }
+        }
+        guard let bar = searchBar else {
+            return
+        }
+        
+        // Create view under search bar
+        var noResView = UIView.init(frame: CGRect.init(x: 0, y: bar.frame.height, width: self.view.frame.width, height: self.view.frame.height - bar.frame.height ))
+        noResView.backgroundColor = UIColor.init(red: 45/255, green: 86/255, blue: 142/255, alpha: 1)
+        noResView.tag = viewTag
+        
+        let label = UILabel(frame: CGRect(x: 10, y: bar.frame.height+30, width: self.view.frame.width-20, height: 30))
+        label.text = "Nothing not found by your request"
+        label.textAlignment = .center
+        label.textColor = UIColor.white
+        
+        // Config noSearchResult view constraints
+        self.view.addSubview(noResView)
+        noResView.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(bar).offset(bar.frame.height)
+            make.left.equalTo(self.view).offset(0)
+            make.bottom.equalTo(self.view).offset(0)
+            make.right.equalTo(self.view).offset(0)
+        }
+        
+        // Config label constraints
+        noResView.addSubview(label)
+        label.snp.makeConstraints { (make) -> Void in
+            make.top.left.right.equalTo(noResView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 10))
+        }
+    
     }
     
     func hideNoResultView(){
         if let view = self.view.subviews.filter(
-            { $0.tag == self.activityIndicatorTag}).first as? UIView {
+            { $0.tag == self.viewTag}).first {
             view.removeFromSuperview()
         }
     }
     
-    @objc func keyBoardWillShow(notification: NSNotification) -> CGFloat{
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            return keyboardRectangle.height
-        } else {
-            return 0.0
-        }
-    }
-    
-    
-    @objc func keyBoardWillHide(notification: NSNotification) {
-        //handle dismiss of keyboard here
-    }
+
     
 }

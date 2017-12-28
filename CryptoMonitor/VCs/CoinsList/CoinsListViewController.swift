@@ -66,7 +66,6 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         if !isSearch {
             cell.configure(with: sortedCoins[indexPath.row])
-            
             return cell
         } else {
             cell.configure(with: searchCoins[indexPath.row])
@@ -125,36 +124,54 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
        //    Tells the delegate that the user changed the search text.
-        if searchText == "" {
+        if let text = searchBar.text, text.isEmpty {
             self.isSearch = false
         } else {
             self.isSearch = true
             self.searchForCoins(searchString: searchText)
         }
+        
+        if(searchCoins.count == 0 && self.isSearch == true){
+            self.showNoResultView()
+        }
+        if(searchCoins.count > 0){
+            self.hideNoResultView()
+        }
+        
         self.coinsTable.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         searchBar.resignFirstResponder()
-        if searchBar.text?.count == 0 {
+        if let text = searchBar.text, text.isEmpty {
             self.isSearch = false
         } else {
             self.isSearch = true
             self.searchForCoins(searchString: searchBar.text!)
+        }
+        
+        if(searchCoins.count == 0 && self.isSearch == true){
+            self.showNoResultView()
+        }
+        if(searchCoins.count > 0){
+            self.hideNoResultView()
         }
         self.coinsTable.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         searchBar.resignFirstResponder()
-        guard let text = searchBar.text else {
-            return
-        }
-        if text.count == 0 || text == "" {
+        if let text = searchBar.text, text.isEmpty {
             self.isSearch = false
         } else {
-           self.isSearch = true
-           self.searchForCoins(searchString: text)
+            self.isSearch = true
+            self.searchForCoins(searchString: searchBar.text!)
+        }
+        if(searchCoins.count == 0 && self.isSearch == true){
+            self.showNoResultView()
+        }
+        if(searchCoins.count > 0){
+            self.hideNoResultView()
         }
         self.coinsTable.reloadData()
     }
