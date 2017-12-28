@@ -124,59 +124,20 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String){
        //    Tells the delegate that the user changed the search text.
-        if let text = searchBar.text, text.isEmpty {
-            self.isSearch = false
-        } else {
-            self.isSearch = true
-            self.searchForCoins(searchString: searchText)
-        }
-        
-        if(searchCoins.count == 0 && self.isSearch == true){
-            self.showNoResultView()
-        }
-        if(searchCoins.count > 0){
-            self.hideNoResultView()
-        }
-        
-        self.coinsTable.reloadData()
+        self.search(searchBar)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
         searchBar.resignFirstResponder()
-        if let text = searchBar.text, text.isEmpty {
-            self.isSearch = false
-        } else {
-            self.isSearch = true
-            self.searchForCoins(searchString: searchBar.text!)
-        }
-        
-        if(searchCoins.count == 0 && self.isSearch == true){
-            self.showNoResultView()
-        }
-        if(searchCoins.count > 0){
-            self.hideNoResultView()
-        }
-        self.coinsTable.reloadData()
+        self.search(searchBar)
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         searchBar.resignFirstResponder()
-        if let text = searchBar.text, text.isEmpty {
-            self.isSearch = false
-        } else {
-            self.isSearch = true
-            self.searchForCoins(searchString: searchBar.text!)
-        }
-        if(searchCoins.count == 0 && self.isSearch == true){
-            self.showNoResultView()
-        }
-        if(searchCoins.count > 0){
-            self.hideNoResultView()
-        }
-        self.coinsTable.reloadData()
+        self.search(searchBar)
     }
     
-    // MARK: search coins localy
+    // MARK: search coins by input string
     func searchForCoins(searchString: String) {
         self.searchCoins.removeAll()
         for coin in sortedCoins{
@@ -185,6 +146,23 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         searchCoins.sort { return $0.name < $1.name }
+    }
+    
+    // MARK: Search method implementation
+    func search(_ searchBar: UISearchBar){
+        if let text = searchBar.text, text.isEmpty {
+            self.isSearch = false
+        } else {
+            self.isSearch = true
+            self.searchForCoins(searchString: searchBar.text!)
+        }
+        if(searchCoins.count == 0 && self.isSearch == true){
+            self.showNoResultView()
+        }
+        if(searchCoins.count > 0){
+            self.hideNoResultView()
+        }
+        self.coinsTable.reloadData()
     }
 
     
