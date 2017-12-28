@@ -17,8 +17,8 @@ extension UIViewController {
         
         //Set the position - defaults to `center` if no`location`
         //argument is provided
-        
-        let loc = location ?? self.view.center
+//        self.view.center
+        let loc = location ?? CGPoint.init(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
         
         //Ensure the UI is updated from the main thread
         //in case this method is called from a closure

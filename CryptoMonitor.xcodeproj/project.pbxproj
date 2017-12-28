@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1220DA1CD5677A492E4901B6 /* Pods_CryptoMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */; };
+		7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */; };
+		7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */; };
+		7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */; };
 		7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */; };
 		7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */; };
 		7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */; };
@@ -18,10 +21,19 @@
 		7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */; };
 		7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5287541FE14B3F00B885B7 /* NetworkService.swift */; };
 		7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */; };
+		7C70080C1FF27A2400EB3F28 /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */; };
+		7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */; };
+		7C7008101FF27A4900EB3F28 /* MiningCoinsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */; };
+		7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */; };
+		7C7008161FF2AB4F00EB3F28 /* Equipment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7008151FF2AB4F00EB3F28 /* Equipment.swift */; };
+		7C7008181FF2ABED00EB3F28 /* MiningData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7008171FF2ABED00EB3F28 /* MiningData.swift */; };
+		7C70081A1FF2AC1700EB3F28 /* CoinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7008191FF2AC1700EB3F28 /* CoinData.swift */; };
 		7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */; };
 		7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */; };
 		7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */; };
 		7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */; };
+		7C8EF82F1FF3AE8B00E7D331 /* EquipmentEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8EF82E1FF3AE8B00E7D331 /* EquipmentEndpoint.swift */; };
+		7C8EF8311FF3F00F00E7D331 /* NoSearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C8EF8301FF3F00F00E7D331 /* NoSearchResultView.swift */; };
 		7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */; };
 		7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709421FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld */; };
 		7CB709461FDFF403009E73F9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709451FDFF403009E73F9 /* Assets.xcassets */; };
@@ -32,6 +44,7 @@
 		7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */; };
 		7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */; };
 		7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */; };
+		7CF88A4E1FE95440000D3FB6 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +60,9 @@
 /* Begin PBXFileReference section */
 		40B998CD5F1FD0C8889DC127 /* Pods-CryptoMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
+		7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsDetailsViewController.swift; sourceTree = "<group>"; };
+		7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsDetailsViewController.xib; sourceTree = "<group>"; };
 		7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListEndpoint.swift; sourceTree = "<group>"; };
 		7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointProtocol.swift; sourceTree = "<group>"; };
 		7C2BAF781FE3D95C00B5C8AD /* CoinsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsList.swift; sourceTree = "<group>"; };
@@ -57,10 +73,19 @@
 		7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		7C5287541FE14B3F00B885B7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
+		7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
+		7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompaniesViewController.xib; sourceTree = "<group>"; };
+		7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningCoinsViewController.swift; sourceTree = "<group>"; };
+		7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MiningCoinsViewController.xib; sourceTree = "<group>"; };
+		7C7008151FF2AB4F00EB3F28 /* Equipment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equipment.swift; sourceTree = "<group>"; };
+		7C7008171FF2ABED00EB3F28 /* MiningData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningData.swift; sourceTree = "<group>"; };
+		7C7008191FF2AC1700EB3F28 /* CoinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinData.swift; sourceTree = "<group>"; };
 		7C79F7241FE1289F008874D6 /* AboutAppViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutAppViewController.swift; sourceTree = "<group>"; };
 		7C79F7251FE1289F008874D6 /* AboutAppViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutAppViewController.xib; sourceTree = "<group>"; };
 		7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsListViewController.swift; sourceTree = "<group>"; };
 		7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsListViewController.xib; sourceTree = "<group>"; };
+		7C8EF82E1FF3AE8B00E7D331 /* EquipmentEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentEndpoint.swift; sourceTree = "<group>"; };
+		7C8EF8301FF3F00F00E7D331 /* NoSearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoSearchResultView.swift; sourceTree = "<group>"; };
 		7CB709381FDFF403009E73F9 /* CryptoMonitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CryptoMonitor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7CB7093B1FDFF403009E73F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7CB709431FDFF403009E73F9 /* CryptoMonitor.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CryptoMonitor.xcdatamodel; sourceTree = "<group>"; };
@@ -75,6 +100,7 @@
 		7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPairsViewController.xib; sourceTree = "<group>"; };
 		7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentViewController.swift; sourceTree = "<group>"; };
 		7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
+		7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		C22835E611C33F5B6F4D5D95 /* Pods-CryptoMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		D93C0D0C5B8D2A98ADDC4A94 /* Pods_CryptoMonitorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -98,11 +124,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C249F1A1FEA7E8C00A4AE4F /* CoinDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */,
+				7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */,
+			);
+			path = CoinDetails;
+			sourceTree = "<group>";
+		};
 		7C2BAF711FE3C98100B5C8AD /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
 				7C2BAF721FE3C9B100B5C8AD /* CoinsListEndpoint.swift */,
 				7C2BAF741FE3CA1200B5C8AD /* EndpointProtocol.swift */,
+				7C8EF82E1FF3AE8B00E7D331 /* EquipmentEndpoint.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -110,6 +146,7 @@
 		7C2BAF761FE3D8CB00B5C8AD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C7008141FF2AB1D00EB3F28 /* Equipment */,
 				7C2BAF771FE3D94000B5C8AD /* CoinsList */,
 			);
 			path = Models;
@@ -129,6 +166,9 @@
 			children = (
 				7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */,
 				7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */,
+				7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */,
+				7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */,
+				7C8EF8301FF3F00F00E7D331 /* NoSearchResultView.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -142,6 +182,42 @@
 				7C2BAF7C1FE3EB9400B5C8AD /* NetworkParamsKeys.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7C7008071FF279D000EB3F28 /* CompaniesTab */ = {
+			isa = PBXGroup;
+			children = (
+				7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */,
+				7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */,
+			);
+			name = CompaniesTab;
+			sourceTree = "<group>";
+		};
+		7C7008091FF279E900EB3F28 /* CoinsTab */ = {
+			isa = PBXGroup;
+			children = (
+				7C7008131FF28AE800EB3F28 /* New Group */,
+				7C70080E1FF27A4900EB3F28 /* MiningCoinsViewController.swift */,
+				7C70080F1FF27A4900EB3F28 /* MiningCoinsViewController.xib */,
+			);
+			name = CoinsTab;
+			sourceTree = "<group>";
+		};
+		7C7008131FF28AE800EB3F28 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		7C7008141FF2AB1D00EB3F28 /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				7C7008151FF2AB4F00EB3F28 /* Equipment.swift */,
+				7C7008171FF2ABED00EB3F28 /* MiningData.swift */,
+				7C7008191FF2AC1700EB3F28 /* CoinData.swift */,
+			);
+			path = Equipment;
 			sourceTree = "<group>";
 		};
 		7C79F7231FE1285E008874D6 /* About */ = {
@@ -236,6 +312,7 @@
 		7CB709771FE026E4009E73F9 /* CoinsList */ = {
 			isa = PBXGroup;
 			children = (
+				7C249F1A1FEA7E8C00A4AE4F /* CoinDetails */,
 				7C79F7281FE12F8F008874D6 /* CoinsListViewController.swift */,
 				7C79F7291FE12F8F008874D6 /* CoinsListViewController.xib */,
 				7C2BAF851FE4234300B5C8AD /* CoinsListTableViewCell.swift */,
@@ -256,6 +333,8 @@
 		7CB709811FE02E9E009E73F9 /* Equipment */ = {
 			isa = PBXGroup;
 			children = (
+				7C7008091FF279E900EB3F28 /* CoinsTab */,
+				7C7008071FF279D000EB3F28 /* CompaniesTab */,
 				7CB709821FE02EB2009E73F9 /* EquipmentViewController.swift */,
 				7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */,
 			);
@@ -367,6 +446,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
+				7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */,
+				7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */,
+				7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */,
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
 				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
 				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
@@ -411,6 +493,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire-SwiftyJSON/Alamofire_SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -418,6 +501,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire_SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -450,20 +534,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CF88A4E1FE95440000D3FB6 /* NoInternetViewController.swift in Sources */,
 				7C2BAF751FE3CA1200B5C8AD /* EndpointProtocol.swift in Sources */,
+				7C7008161FF2AB4F00EB3F28 /* Equipment.swift in Sources */,
 				7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */,
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
+				7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */,
 				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,
+				7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */,
+				7C7008101FF27A4900EB3F28 /* MiningCoinsViewController.swift in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
+				7C70081A1FF2AC1700EB3F28 /* CoinData.swift in Sources */,
 				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,
 				7CB7093C1FDFF403009E73F9 /* AppDelegate.swift in Sources */,
+				7C8EF8311FF3F00F00E7D331 /* NoSearchResultView.swift in Sources */,
 				7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */,
+				7C70080C1FF27A2400EB3F28 /* CompaniesViewController.swift in Sources */,
 				7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */,
 				7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */,
 				7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */,
+				7C7008181FF2ABED00EB3F28 /* MiningData.swift in Sources */,
+				7C8EF82F1FF3AE8B00E7D331 /* EquipmentEndpoint.swift in Sources */,
 				7C2BAF7D1FE3EB9400B5C8AD /* NetworkParamsKeys.swift in Sources */,
 				7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */,
 			);

@@ -46,27 +46,35 @@ class CoinsListTableViewCell: UITableViewCell {
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: NetworkService.baseURL + coin.imgUrl) {
+        if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
             updateCell(name: coin.coinName, image: image)
-//            updateCell(name: coin.coinName, image: UIImage(data: coin.coinImage!,scale:1.0)! )
             return
         }
-        downloadImage()
-    }
-    
+           downloadImage()
+        }
+
     func downloadImage() {
         // TODO: Core Data Image Loading
-        request = NetworkService().downloadImage(for: "https://www.cryptocompare.com"+coin.imgUrl, completion: {image in
+        if NetworkReachability.isConnectedToNetwork() {
+        request = NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: {image in
             self.updateCell(name: self.coin.coinName, image: image)
         })
+        }
     }
     
     func updateCell(name: String, image: UIImage){
-        //self.coinImage.imageFromUrl(urlString: NetworkService.baseURL+img_url)
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
-        self.coinName.text = name
+        self.coinName.text = formatCoinName(name)
         self.coinImage.image = image
     }
     
+    func formatCoinName(_ name: String)->String{
+        if name.count > 15 {
+            return name.replacingOccurrences(of: " ", with: "\n")
+        } else {
+            return name
+        }
+    }
+
 }
