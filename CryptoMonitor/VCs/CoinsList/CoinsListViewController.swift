@@ -35,6 +35,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
+        super.viewWillAppear(true)
         self.configureBackBarButtonItem()
         if NetworkReachability.isConnectedToNetwork(){
             self.navigationController?.topViewController?.destroyNoInternetView()
@@ -166,9 +167,5 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         searchCoins.sort { return $0.name < $1.name }
     }
-    
-    
-
-    
     
 }
