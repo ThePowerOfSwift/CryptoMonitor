@@ -137,6 +137,25 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         self.search(searchBar)
     }
     
+    // MARK: Search method implementation
+    func search(_ searchBar: UISearchBar){
+        if let text = searchBar.text, text.isEmpty {
+            self.isSearch = false
+        }
+        
+        if let text = searchBar.text, !text.isEmpty  {
+            self.isSearch = true
+            self.searchForCoins(searchString: text)
+        }
+        if(searchCoins.count == 0 && self.isSearch == true){
+            self.showNoResultView()
+        }
+        if(searchCoins.count != 0 || self.isSearch == false){
+            self.hideNoResultView()
+        }
+        self.coinsTable.reloadData()
+    }
+    
     // MARK: search coins by input string
     func searchForCoins(searchString: String) {
         self.searchCoins.removeAll()
@@ -148,22 +167,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         searchCoins.sort { return $0.name < $1.name }
     }
     
-    // MARK: Search method implementation
-    func search(_ searchBar: UISearchBar){
-        if let text = searchBar.text, text.isEmpty {
-            self.isSearch = false
-        } else {
-            self.isSearch = true
-            self.searchForCoins(searchString: searchBar.text!)
-        }
-        if(searchCoins.count == 0 && self.isSearch == true){
-            self.showNoResultView()
-        }
-        if(searchCoins.count > 0){
-            self.hideNoResultView()
-        }
-        self.coinsTable.reloadData()
-    }
+    
 
     
     

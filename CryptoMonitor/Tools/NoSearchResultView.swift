@@ -16,6 +16,8 @@ extension UIViewController {
     
     
     func showNoResultView(){
+        // Hide previous view
+        self.hideNoResultView()
         // Find search bar
         var searchBar : UISearchBar?
         for subview in self.view.subviews {
@@ -55,10 +57,10 @@ extension UIViewController {
     }
     
     func hideNoResultView(){
-        if let view = self.view.subviews.filter(
-            { $0.tag == self.viewTag}).first {
-            view.removeFromSuperview()
-        }
+        let views = self.view.subviews.filter({ $0.tag == self.viewTag})
+            for view in views {
+                view.removeFromSuperview()
+            }
     }
     
 
