@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static DataRequest.validateContentType(for:response:):Request+AlamofireImage.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CoinsListTableViewCell.configure(with:):CoinsListTableViewCell.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CoinsListTableViewCell.downloadImage():CoinsListTableViewCell.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NetworkService.baseURL+coin.imgUrl">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MainViewController.configureTabBar():MainViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "UIViewController.showNoInternetView():NoInternetViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "button.frame">
+            </PersistentString>
+            <PersistentString
+               value = "label.frame">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CoinsListTableViewCell.loadImage():CoinsListTableViewCell.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
