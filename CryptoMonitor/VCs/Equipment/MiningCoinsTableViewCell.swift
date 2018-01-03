@@ -1,24 +1,24 @@
 //
-//  CoinsListTableViewCell.swift
+//  MiningCoinsTableViewCell.swift
 //  CryptoMonitor
 //
-//  Created by Serg Liamthev on 15.12.17.
+//  Created by Serg Liamthev on 28.12.17.
 //  Copyright © 2017 Serg Liamthev. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 
-class CoinsListTableViewCell: UITableViewCell {
-    
+class MiningCoinsTableViewCell: UITableViewCell {
+
     @IBOutlet weak var coinImage: UIImageView!
     
-    @IBOutlet weak var coinName: UILabel!
+    @IBOutlet weak var coinLabel: UILabel!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var request: Request?
-    var coin: CoinInfo!
+    var coinData: CoinData?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,8 +30,8 @@ class CoinsListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(with coin: CoinInfo) {
-        self.coin = coin
+    func configure(coinData: CoinData) {
+        self.coinData = coinData
         reset()
         loadImage()
     }
@@ -41,39 +41,31 @@ class CoinsListTableViewCell: UITableViewCell {
         activityIndicator.startAnimating()
         coinImage.image = nil
         request?.cancel()
-        coinName.text = nil
+        coinLabel.text = nil
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
-            updateCell(name: coin.coinName, image: image)
+        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + (coinData?.imageURL)! ) {
+            updateCell(name: (coinData?.symbol)!, image: image)
             return
         }
-           downloadImage()
-        }
-
+        downloadImage()
+    }
+    
     func downloadImage() {
         // TODO: Core Data Image Loading
         if NetworkReachability.isConnectedToNetwork() {
-        request = NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: {image in
-            self.updateCell(name: self.coin.coinName, image: image)
-        })
+            request = NetworkService().downloadImage(for: NetworkService.webBaseURL + (coinData?.imageURL)!, completion: {image in
+                self.updateCell(name: (self.coinData?.symbol)!, image: image)
+            })
         }
     }
     
     func updateCell(name: String, image: UIImage){
-        self.activityIndicator.stopAnimating()
-        self.activityIndicator.isHidden = true
-        self.coinName.text = formatCoinName(name)
-        self.coinImage.image = image
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        coinImage.image = image
+        coinLabel.text = name
     }
     
-    func formatCoinName(_ name: String)->String{
-        if name.count > 15 {
-            return name.replacingOccurrences(of: " ", with: "\n")
-        } else {
-            return name
-        }
-    }
-
 }

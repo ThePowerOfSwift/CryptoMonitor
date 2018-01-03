@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MiningCoinsViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
-                <outlet property="textView" destination="7iW-uE-G1K" id="JdI-Z0-YQF"/>
+                <outlet property="coinsTable" destination="iG0-JA-WgL" id="6gW-B9-c55"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,22 +21,20 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7iW-uE-G1K">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iG0-JA-WgL">
                     <rect key="frame" x="10" y="30" width="355" height="627"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7iW-uE-G1K" secondAttribute="trailing" constant="10" id="993-d9-8Cf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7iW-uE-G1K" secondAttribute="bottom" constant="10" id="DYy-dY-jsZ"/>
-                <constraint firstItem="7iW-uE-G1K" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="cH0-Ud-gmu"/>
-                <constraint firstItem="7iW-uE-G1K" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="xIJ-ul-1d6"/>
+                <constraint firstItem="iG0-JA-WgL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="9fC-JJ-ha0"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iG0-JA-WgL" secondAttribute="trailing" constant="10" id="jiW-mc-O0H"/>
+                <constraint firstItem="iG0-JA-WgL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="lWQ-Iy-WOd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iG0-JA-WgL" secondAttribute="bottom" constant="10" id="tC9-jP-EFZ"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>

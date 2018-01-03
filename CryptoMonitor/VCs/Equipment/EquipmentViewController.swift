@@ -17,6 +17,8 @@ class EquipmentViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
+    var currentTab: Int = 0
+    
     var currentViewController: UIViewController?
     
     var companiesVC: CompaniesViewController?
@@ -30,6 +32,8 @@ class EquipmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
+        self.configureBackBarButtonItem()
+        self.segmentedControl.selectedSegmentIndex = currentTab
         // Do any additional setup after loading the view.
     }
     
@@ -42,7 +46,7 @@ class EquipmentViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.isNavigationBarHidden = true
-        self.segmentedControl.selectedSegmentIndex = 0
+        self.segmentedControl.selectedSegmentIndex = currentTab
         self.switchTab(segmentedControl)
     }
     
@@ -119,13 +123,13 @@ class EquipmentViewController: UIViewController {
         guard let equipment1 = equipment else {
             return
         }
+        currentTab = tabIndex
         switch tabIndex {
         case 0:
             companiesVC?.setData(miningData: equipment1.miningData)
             companiesVC?.updateUI()
         case 1:
-            miningCoinsVC?.setData(coinData: equipment1.coinData)
-            miningCoinsVC?.updateUI()
+            miningCoinsVC?.setData(coinData: equipment1.coinData, miningData: equipment1.miningData)
         default:
             return
         }

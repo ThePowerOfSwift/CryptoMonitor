@@ -30,6 +30,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         configCoinsTable()
         self.coinsSearchBar.delegate = self
+        loadData()
         // Do any additional setup after loading the view.
     }
     
@@ -37,6 +38,10 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(true)
         self.configureBackBarButtonItem()
+    }
+    
+    // MARK: Load data to table
+    func loadData(){
         if NetworkReachability.isConnectedToNetwork(){
             self.navigationController?.topViewController?.destroyNoInternetView()
             if sortedCoins.count > 0 {
@@ -47,7 +52,6 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         } else {
             self.navigationController?.topViewController?.showNoInternetView()
         }
-        
     }
     
     // MARK: CoinTable delegate methods
@@ -58,6 +62,9 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
                             forCellReuseIdentifier: "CoinsListTableViewCell")
         coinsTable.delegate = self
         coinsTable.dataSource = self
+        //coinsTable.separatorStyle = .none
+        coinsTable.estimatedRowHeight = 128
+        coinsTable.rowHeight = 128
     }
     
     func tableView(_ tableView: UITableView,
@@ -98,6 +105,10 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 128.0
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128.0
     }
     

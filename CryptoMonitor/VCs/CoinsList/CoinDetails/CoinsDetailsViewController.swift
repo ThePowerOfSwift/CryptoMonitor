@@ -61,12 +61,11 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
-       // self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(true)
-        self.navigationController?.isNavigationBarHidden = true
     }
 
     override func didReceiveMemoryWarning() {

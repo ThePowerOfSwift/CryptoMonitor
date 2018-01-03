@@ -10,26 +10,23 @@ import UIKit
 
 class AboutAppViewController: UIViewController {
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.showNoResultView()
+        setText()
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func setText(){
+        var attributedString = "Powered by API:"
+        attributedString.append("\n"+"https://www.cryptocompare.com/api#")
+        attributedString.append("\n"+"Developed by SergLam.")
+        attributedString.append("\n"+"Source code aviable on GitHub:")
+        attributedString.append("\n"+"https://github.com/SergLam/CryptoMonitor")
+        textView.text = attributedString
     }
-    */
+
+
 
 }
