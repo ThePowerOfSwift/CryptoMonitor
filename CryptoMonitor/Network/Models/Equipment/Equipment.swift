@@ -13,8 +13,8 @@ struct Equipment{
     var response = ""
     var message = ""
     var type = ""
-    var miningData: [String: MiningData] = [:]
-    var coinData: [String: CoinData] = [:]
+    var miningData: [MiningData] = []
+    var coinData: [CoinData] = []
 }
 
 extension Equipment {
@@ -24,11 +24,11 @@ extension Equipment {
         type = json[NetworkParamsKeys.Equipment.type.rawValue].stringValue
         
         for (key, value) in json[NetworkParamsKeys.Equipment.miningData.rawValue]{
-            miningData[key] = MiningData.init(json: value)
+            miningData.append(MiningData.init(json: value))
         }
         
         for(key, value) in json[NetworkParamsKeys.Equipment.coinData.rawValue]{
-            coinData[key] = CoinData.init(json: value)
+            coinData.append(CoinData.init(json: value))
         }
     }
 }

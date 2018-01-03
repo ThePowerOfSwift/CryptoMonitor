@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
+class CoinsDetailsViewController: UIViewController {
     
     @IBOutlet weak var coinImage: UIImageView!
     
@@ -111,30 +111,5 @@ class CoinsDetailsViewController: UIViewController, UITextFieldDelegate {
             return "No"
         }
     }
-    
-    // MARk: TextField delegate methods
-    
-    
-    // CoinInfo
-    var id: Int = 0
-    var url: String = ""
-    var imgUrl: String = ""
-    var name: String = ""
-    var symbol: String = ""
-    var coinName: String = ""
-    var fullName: String = ""
-    var algorithm: String = ""
-    var proofType: String = ""
-    var fullyPremined: Int = 0
-    var totalCoinSupply: Int = 0
-    var preMinedValue: String = ""
-    var totalCoinsFreeFloat: String = ""
-    var sortOrder: Int = 0
-    var sponsored: Bool = true
-    var baseImgUrl: String = ""
-    var baseLink: String = ""
-    // Base image and description URL
-    
-    
 
 }

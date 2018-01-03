@@ -48,6 +48,8 @@
 		7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */; };
 		7CE382691FFCDEB1004E391F /* CoinDataDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE382671FFCDEB1004E391F /* CoinDataDetailsViewController.swift */; };
 		7CE3826A1FFCDEB1004E391F /* CoinDataDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE382681FFCDEB1004E391F /* CoinDataDetailsViewController.xib */; };
+		7CE3826D1FFD14B0004E391F /* CompanyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE3826B1FFD14B0004E391F /* CompanyTableViewCell.swift */; };
+		7CE3826E1FFD14B0004E391F /* CompanyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7CE3826C1FFD14B0004E391F /* CompanyTableViewCell.xib */; };
 		7CF88A4E1FE95440000D3FB6 /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +110,8 @@
 		7CB709831FE02EB2009E73F9 /* EquipmentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EquipmentViewController.xib; sourceTree = "<group>"; };
 		7CE382671FFCDEB1004E391F /* CoinDataDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinDataDetailsViewController.swift; sourceTree = "<group>"; };
 		7CE382681FFCDEB1004E391F /* CoinDataDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinDataDetailsViewController.xib; sourceTree = "<group>"; };
+		7CE3826B1FFD14B0004E391F /* CompanyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyTableViewCell.swift; sourceTree = "<group>"; };
+		7CE3826C1FFD14B0004E391F /* CompanyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompanyTableViewCell.xib; sourceTree = "<group>"; };
 		7CF88A4D1FE95440000D3FB6 /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
 		C22835E611C33F5B6F4D5D95 /* Pods-CryptoMonitor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.debug.xcconfig"; sourceTree = "<group>"; };
 		D93C0D0C5B8D2A98ADDC4A94 /* Pods_CryptoMonitorTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitorTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -197,6 +201,8 @@
 			children = (
 				7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */,
 				7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */,
+				7CE3826B1FFD14B0004E391F /* CompanyTableViewCell.swift */,
+				7CE3826C1FFD14B0004E391F /* CompanyTableViewCell.xib */,
 			);
 			name = CompaniesTab;
 			sourceTree = "<group>";
@@ -457,6 +463,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7CE3826E1FFD14B0004E391F /* CompanyTableViewCell.xib in Resources */,
 				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
 				7C94E25D1FF51C2600641C0A /* MiningCoinsTableViewCell.xib in Resources */,
 				7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */,
@@ -554,6 +561,7 @@
 				7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */,
 				7CB709741FE02238009E73F9 /* MainViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
+				7CE3826D1FFD14B0004E391F /* CompanyTableViewCell.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
 				7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */,
 				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,

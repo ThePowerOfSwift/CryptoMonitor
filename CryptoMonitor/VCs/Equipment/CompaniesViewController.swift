@@ -8,29 +8,61 @@
 
 import UIKit
 
-class CompaniesViewController: UIViewController {
-
-    var miningData: [String: MiningData]? = nil
+class CompaniesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    @IBOutlet weak var textView: UITextView!
+    var miningData: [MiningData] = []
+    
+    let cellName = "CompanyTableViewCell"
+    
+    @IBOutlet weak var companiesTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        configureTableView()
     }
     
-    func setData(miningData: [String: MiningData]){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    func configureTableView(){
+        companiesTable.register(UINib(nibName: cellName,
+                                      bundle: Bundle.main), forCellReuseIdentifier: cellName)
+        companiesTable.delegate = self
+        companiesTable.dataSource = self
+        companiesTable.estimatedRowHeight = 120
+        companiesTable.rowHeight = 120
+    }
+    
+    func setData(miningData: [MiningData]){
         self.miningData = miningData
     }
     
     func updateUI(){
-        if let data = miningData {
-            var result = ""
-            for (key, value) in data {
-                result.append(key+" ")
-            }
-            textView.text = result
-        }
+       companiesTable.reloadData()
+    }
+    
+    //MARK: Table View Delegete methods
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.0
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 120.0
+    }
+    
+    // MARK: Table View Data Source methods
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return miningData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = companiesTable.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! CompanyTableViewCell
+        cell.configure(miningData[indexPath.row])
+        cell.selectionStyle = .none
+        return cell
     }
     
 }

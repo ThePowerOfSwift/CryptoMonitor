@@ -68,15 +68,6 @@ class CoinDataDetailsViewController: UIViewController {
         coinTotalMined.text = "TotalCoinsMined:" + "\n" + "\(coinData.totalCoinsMined)"
     }
     
-    func ps(_ obj: Any) -> String{
-        if obj != nil{
-            return String(describing: obj)
-        } else {
-            return "null"
-        }
-        
-    }
-    
     func loadImage() {
         if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + (coinData?.imageURL)! ) {
             DispatchQueue.main.async {

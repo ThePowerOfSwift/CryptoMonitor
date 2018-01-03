@@ -126,7 +126,7 @@ class EquipmentViewController: UIViewController {
         currentTab = tabIndex
         switch tabIndex {
         case 0:
-            companiesVC?.setData(miningData: equipment1.miningData)
+            companiesVC?.setData(miningData: equipment1.miningData.sorted{return $0.company < $1.company})
             companiesVC?.updateUI()
         case 1:
             miningCoinsVC?.setData(coinData: equipment1.coinData, miningData: equipment1.miningData)

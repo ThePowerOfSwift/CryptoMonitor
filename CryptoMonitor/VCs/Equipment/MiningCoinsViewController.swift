@@ -10,14 +10,9 @@ import UIKit
 
 class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var coinData: [String: CoinData] = [:]{
-        didSet{
-            coinDataKeys = Array(coinData.keys)
-        }
-    }
-    var coinDataKeys: [String] = []
+    var coinData: [CoinData] = []
     
-    var miningData: [String: MiningData] = [:]
+    var miningData: [MiningData] = []
     
     @IBOutlet weak var coinsTable: UITableView!
     
@@ -43,13 +38,13 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
         coinsTable.rowHeight = 120
     }
     
-    func setData(coinData: [String: CoinData], miningData: [String: MiningData]){
+    func setData(coinData: [CoinData], miningData: [MiningData]){
         self.coinData = coinData
         self.miningData = miningData
-        for(key, value) in coinData{
-            for(key1, value1) in miningData{
-                if value.symbol == value1.currenciesAvailable {
-                    self.coinData[key]?.imageURL = value1.currenciesAvailableLogo
+        for (index, data) in coinData.enumerated(){
+            for data1 in miningData{
+                if data.symbol == data1.currenciesAvailable {
+                    self.coinData[index].imageURL = data1.currenciesAvailableLogo
                 }
             }
         }
@@ -59,18 +54,18 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let coinDataVC = CoinDataDetailsViewController()
-        coinDataVC.setData(self.coinData[coinDataKeys[indexPath.row]]!)
+        coinDataVC.setData(self.coinData[indexPath.row])
         self.navigationController?.pushViewController(coinDataVC, animated: true)
     }
     
     // MARK: TableView data source methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return coinData.capacity
+        return coinData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = coinsTable.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MiningCoinsTableViewCell
-        cell.configure(coinData: coinData[coinDataKeys[indexPath.row]]!)
+        cell.configure(coinData: coinData[indexPath.row])
         cell.selectionStyle = .none
         return cell
     }

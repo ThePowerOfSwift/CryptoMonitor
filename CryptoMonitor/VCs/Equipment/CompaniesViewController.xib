@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CompaniesViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
-                <outlet property="textView" destination="d8k-gp-GzF" id="nYp-Zg-FDd"/>
+                <outlet property="companiesTable" destination="WCJ-5L-1zv" id="FuI-m8-uPy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,21 +21,22 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="TextView" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="d8k-gp-GzF">
-                    <rect key="frame" x="10" y="30" width="355" height="627"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WCJ-5L-1zv">
+                    <rect key="frame" x="10" y="30" width="355" height="578"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="d8k-gp-GzF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="1B5-eR-GyY"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="d8k-gp-GzF" secondAttribute="bottom" constant="10" id="UW3-aD-gQZ"/>
-                <constraint firstItem="d8k-gp-GzF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="dFn-qp-Luq"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="d8k-gp-GzF" secondAttribute="trailing" constant="10" id="mhi-tV-d9T"/>
+                <constraint firstItem="WCJ-5L-1zv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="mYz-Jc-1nl"/>
+                <constraint firstItem="WCJ-5L-1zv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="qcV-B5-15W"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WCJ-5L-1zv" secondAttribute="trailing" constant="10" id="yAk-EE-6vI"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="WCJ-5L-1zv" secondAttribute="bottom" constant="10" id="z4R-4o-Gcb"/>
             </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="33.5" y="106.5"/>
         </view>
     </objects>
 </document>
