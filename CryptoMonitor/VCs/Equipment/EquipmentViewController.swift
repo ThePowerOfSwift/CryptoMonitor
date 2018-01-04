@@ -115,7 +115,7 @@ class EquipmentViewController: UIViewController {
                     self.equipment = Equipment(json: value)
                     self.stopActivityIndicator()
                     DispatchQueue.main.async {
-                self.updateCurrentTab(self.segmentedControl.selectedSegmentIndex)
+                self.changeActiveTab(selectedTab: self.segmentedControl.selectedSegmentIndex)
                     }
                 })
             } else {
