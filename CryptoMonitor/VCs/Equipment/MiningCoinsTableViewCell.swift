@@ -65,6 +65,7 @@ class MiningCoinsTableViewCell: UITableViewCell {
         guard let symbol = coinData?.symbol else {
             return
         }
+        coinLabel.text = symbol
         if NetworkReachability.isConnectedToNetwork() {
             request = NetworkService().downloadImage(for: NetworkService.webBaseURL + imgUrl, completion: {image in
                 self.updateCell(name: symbol, image: image)
@@ -76,7 +77,7 @@ class MiningCoinsTableViewCell: UITableViewCell {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         coinImage.image = image
-        coinLabel.text = name
+        //coinLabel.text = name
     }
     
 }

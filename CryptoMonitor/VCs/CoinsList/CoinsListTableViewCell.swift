@@ -46,6 +46,7 @@ class CoinsListTableViewCell: UITableViewCell {
     }
     
     func loadImage() {
+        self.coinName.text = formatCoinName(self.coin.name)
         if let image = NetworkService().cachedImage(for: coin.baseImgUrl + coin.imgUrl) {
             updateCell(name: coin.coinName, image: image)
             return
@@ -66,7 +67,7 @@ class CoinsListTableViewCell: UITableViewCell {
     func updateCell(name: String, image: UIImage) {
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
-        self.coinName.text = formatCoinName(name)
+        //self.coinName.text = formatCoinName(name)
         self.coinImage.image = image
     }
     

@@ -54,6 +54,7 @@ class CompanyTableViewCell: UITableViewCell {
         guard let data = miningData else {
             return
         }
+        companyName.text = data.company
         if NetworkReachability.isConnectedToNetwork() {
             request = NetworkService().downloadImage(for: NetworkService.webBaseURL + data.logoUrl, completion: { image in
                 self.updateCell(name: data.company, image: image)
@@ -64,7 +65,7 @@ class CompanyTableViewCell: UITableViewCell {
     func updateCell(name: String, image: UIImage) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
-        companyName.text = name
+        //companyName.text = name
         companyLogo.image = image
     }
     
