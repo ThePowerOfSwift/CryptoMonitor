@@ -10,25 +10,25 @@ import UIKit
 
 class CoinDataDetailsViewController: UIViewController {
 
-    var coinData: CoinData? = nil
+    var coinData: CoinData?
     
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak private var coinImage: UIImageView!
     
-    @IBOutlet weak var coinPrice: UILabel!
+    @IBOutlet weak private var coinPrice: UILabel!
     
-    @IBOutlet weak var coinBlockReward: UILabel!
+    @IBOutlet weak private var coinBlockReward: UILabel!
     
-    @IBOutlet weak var coinBlockTime: UILabel!
+    @IBOutlet weak private var coinBlockTime: UILabel!
     
-    @IBOutlet weak var coinBlockNumber: UILabel!
+    @IBOutlet weak private var coinBlockNumber: UILabel!
     
-    @IBOutlet weak var coinDifficulty: UILabel!
+    @IBOutlet weak private var coinDifficulty: UILabel!
     
-    @IBOutlet weak var coinBlockReduction: UILabel!
+    @IBOutlet weak private var coinBlockReduction: UILabel!
     
-    @IBOutlet weak var coinNetHash: UILabel!
+    @IBOutlet weak private var coinNetHash: UILabel!
     
-    @IBOutlet weak var coinTotalMined: UILabel!
+    @IBOutlet weak private var coinTotalMined: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,11 +45,11 @@ class CoinDataDetailsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
 
-    func setData(_ data: CoinData){
+    func setData(_ data: CoinData) {
         self.coinData = data
     }
     
-    func updateUI(){
+    func updateUI() {
         guard let coinData = coinData else {
             return
         }
@@ -69,7 +69,10 @@ class CoinDataDetailsViewController: UIViewController {
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + (coinData?.imageURL)! ) {
+        guard let imgUrl = coinData?.imageURL else {
+            return
+        }
+        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + imgUrl) {
             DispatchQueue.main.async {
                 self.coinImage.image = image
             }
@@ -79,9 +82,12 @@ class CoinDataDetailsViewController: UIViewController {
     }
     
     func downloadImage() {
+        guard let imgUrl = coinData?.imageURL else {
+            return
+        }
         // TODO: Core Data Image Loading
         if NetworkReachability.isConnectedToNetwork() {
-            NetworkService().downloadImage(for: NetworkService.webBaseURL + (coinData?.imageURL)!, completion: {image in
+            NetworkService().downloadImage(for: NetworkService.webBaseURL + imgUrl, completion: {image in
                 DispatchQueue.main.async {
                     self.coinImage.image = image
                 }

@@ -10,7 +10,6 @@ import Foundation
 import SwiftyJSON
 
 class CoinInfo {
-    
     var id: Int = 0
     var url: String = ""
     var imgUrl: String = ""
@@ -46,7 +45,6 @@ class CoinInfo {
         totalCoinsFreeFloat = coinInfo[NetworkParamsKeys.CoinList.totalCoinsFreeFloat.rawValue].stringValue
         sortOrder = coinInfo[NetworkParamsKeys.CoinList.sortOrder.rawValue].intValue
         sponsored = coinInfo[NetworkParamsKeys.CoinList.sponsored.rawValue].boolValue
-        
         baseImgUrl = baseImageUrl
         baseLink = baseLinkUrl
     }

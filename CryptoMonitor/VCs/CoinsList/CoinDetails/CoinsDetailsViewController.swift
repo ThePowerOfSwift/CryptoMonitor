@@ -12,29 +12,29 @@ import AlamofireImage
 
 class CoinsDetailsViewController: UIViewController {
     
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak private var coinImage: UIImageView!
     
-    @IBOutlet weak var coinURL: UITextView!
+    @IBOutlet weak private var coinURL: UITextView!
     
-    @IBOutlet weak var fullNameLabel: UILabel!
+    @IBOutlet weak private var fullNameLabel: UILabel!
     
-    @IBOutlet weak var symbolLabel: UILabel!
+    @IBOutlet weak private var symbolLabel: UILabel!
     
-    @IBOutlet weak var algorithmLabel: UILabel!
+    @IBOutlet weak private var algorithmLabel: UILabel!
     
-    @IBOutlet weak var proofTypeLabel: UILabel!
+    @IBOutlet weak private var proofTypeLabel: UILabel!
     
-    @IBOutlet weak var fullyPreminedLabel: UILabel!
+    @IBOutlet weak private var fullyPreminedLabel: UILabel!
     
-    @IBOutlet weak var totalSupplyLabel: UILabel!
+    @IBOutlet weak private var totalSupplyLabel: UILabel!
     
-    @IBOutlet weak var preMinedValueLabel: UILabel!
+    @IBOutlet weak private var preMinedValueLabel: UILabel!
     
-    @IBOutlet weak var sponsoredLabel: UILabel!
+    @IBOutlet weak private var sponsoredLabel: UILabel!
     
-    var coin : CoinInfo? = nil
+    var coin: CoinInfo?
     
-    func setCoin(coin: CoinInfo){
+    func setCoin(coin: CoinInfo) {
         self.coin = coin
     }
     
@@ -47,16 +47,10 @@ class CoinsDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if let name = coin?.coinName{
+        if let name = coin?.coinName {
             self.setVC_Title(name)
         }
         self.navigationController?.isNavigationBarHidden = false
-    }
-    
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -73,7 +67,7 @@ class CoinsDetailsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func updateScreen(){
+    func updateScreen() {
         guard let coin = self.coin else {
             return
         }
@@ -98,13 +92,13 @@ class CoinsDetailsViewController: UIViewController {
         sponsoredLabel.text = "Sponsored: "+convertBool(coin.sponsored)
         
         var attributedString = "Want read more about coin?\nCheck link below!"
-        attributedString.append("\n"+coin.baseLink+coin.url)
+        attributedString.append("\n" + coin.baseLink + coin.url)
         coinURL.text = attributedString
         
         }
     
-    func convertBool(_ b: Bool) -> String{
-        switch b {
+    func convertBool(_ bool: Bool) -> String {
+        switch bool {
         case true:
             return "Yes"
         case false:

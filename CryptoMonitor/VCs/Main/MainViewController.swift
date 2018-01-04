@@ -10,7 +10,6 @@ import UIKit
 
 class MainViewController: UITabBarController {
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTabBar()
@@ -22,7 +21,7 @@ class MainViewController: UITabBarController {
         // Dispose of any resources that can be recreated.
     }
     
-    private func configureTabBar(){
+    private func configureTabBar() {
         let coinsVC = CoinsListViewController()
         let coinsNavigationVC = UINavigationController(rootViewController: coinsVC)
         coinsNavigationVC.tabBarItem = UITabBarItem(title: "Coins", image: #imageLiteral(resourceName: "ic_coins"), selectedImage: #imageLiteral(resourceName: "ic_coins"))

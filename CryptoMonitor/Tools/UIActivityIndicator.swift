@@ -13,12 +13,12 @@ extension UIViewController {
     var activityIndicatorTag: Int { return 999999 }
     
     func startActivityIndicator(style: UIActivityIndicatorViewStyle = .gray,
-        location: CGPoint? = nil) {
+                                location: CGPoint? = nil) {
         
         //Set the position - defaults to `center` if no`location`
         //argument is provided
 //        self.view.center
-        let loc = location ?? CGPoint.init(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height/2)
+        let loc = location ?? CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 2)
         
         //Ensure the UI is updated from the main thread
         //in case this method is called from a closure
@@ -47,16 +47,12 @@ extension UIViewController {
         }
     }
     
-    
     func stopActivityIndicator() {
-        
         //Again, we need to ensure the UI is updated from the main thread!
-        
         DispatchQueue.main.async {
             //Here we find the `UIActivityIndicatorView` and remove it from the view
             
-            if let activityIndicator = self.view.subviews.filter(
-                { $0.tag == self.activityIndicatorTag}).first as? UIActivityIndicatorView {
+            if let activityIndicator = self.view.subviews.filter({ $0.tag == self.activityIndicatorTag}).first as? UIActivityIndicatorView {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
             }

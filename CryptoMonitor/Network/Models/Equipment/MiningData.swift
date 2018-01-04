@@ -9,7 +9,7 @@
 import Foundation
 import SwiftyJSON
 
-struct MiningData{
+struct MiningData {
     var id = "0"
     var parentId = "0"
     var company = "NoName"

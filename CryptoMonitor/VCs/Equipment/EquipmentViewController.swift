@@ -13,9 +13,9 @@ import Alamofire_SwiftyJSON
 
 class EquipmentViewController: UIViewController {
 
-    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak private var segmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak private var contentView: UIView!
     
     var currentTab: Int = 0
     
@@ -25,7 +25,7 @@ class EquipmentViewController: UIViewController {
     
     var miningCoinsVC: MiningCoinsViewController?
     
-    var equipment : Equipment?
+    var equipment: Equipment?
     
     // MARK: ViewController methods
     
@@ -39,12 +39,13 @@ class EquipmentViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if let currentVC = currentViewController{
+        if let currentVC = currentViewController {
             currentVC.viewWillDisappear(animated)
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
         self.segmentedControl.selectedSegmentIndex = currentTab
         self.switchTab(segmentedControl)
@@ -54,19 +55,22 @@ class EquipmentViewController: UIViewController {
 
     @IBAction func switchTab(_ sender: UISegmentedControl) {
         
-        if currentViewController != nil{
-            self.currentViewController!.view.removeFromSuperview()
-            self.currentViewController!.removeFromParentViewController()
+        guard let currentVC = currentViewController else {
+            return
         }
+        
+        currentVC.view.removeFromSuperview()
+        currentVC.removeFromParentViewController()
+        
         let selectedTab = sender.selectedSegmentIndex
         self.changeActiveTab(selectedTab: selectedTab)
     }
     
-    func changeActiveTab(selectedTab: Int){
+    func changeActiveTab(selectedTab: Int) {
         let selectedVC: UIViewController?
         switch selectedTab {
         case 0:
-            if companiesVC == nil{
+            if companiesVC == nil {
                 companiesVC = CompaniesViewController()
                 selectedVC = companiesVC
             } else {
@@ -75,7 +79,7 @@ class EquipmentViewController: UIViewController {
             changeVC(vc: selectedVC!)
             updateCurrentTab(selectedTab)
         case 1:
-            if miningCoinsVC == nil{
+            if miningCoinsVC == nil {
                 miningCoinsVC = MiningCoinsViewController()
                 selectedVC = miningCoinsVC
             } else {
@@ -88,7 +92,7 @@ class EquipmentViewController: UIViewController {
         }
     }
     
-    func changeVC(vc: UIViewController){
+    func changeVC(vc: UIViewController) {
         self.addChildViewController(vc)
         vc.didMove(toParentViewController: self)
         
@@ -100,12 +104,15 @@ class EquipmentViewController: UIViewController {
     
     // MARK: Download from Network methods
     
-    func loadData(){
+    func loadData() {
         if equipment == nil {
-            if NetworkReachability.isConnectedToNetwork(){
+            if NetworkReachability.isConnectedToNetwork() {
                 self.startActivityIndicator()
-                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler:{ (dataResponse) -> Void in
-                    self.equipment = Equipment.init(json: dataResponse.result.value!)
+                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler: { (dataResponse) -> Void in
+                    guard let value = dataResponse.result.value else {
+                        return
+                    }
+                    self.equipment = Equipment(json: value)
                     self.stopActivityIndicator()
                     DispatchQueue.main.async {
                 self.updateCurrentTab(self.segmentedControl.selectedSegmentIndex)
@@ -119,14 +126,14 @@ class EquipmentViewController: UIViewController {
     
     // MARK: Update UI after downloading data
     
-    func updateCurrentTab(_ tabIndex: Int){
+    func updateCurrentTab(_ tabIndex: Int) {
         guard let equipment1 = equipment else {
             return
         }
         currentTab = tabIndex
         switch tabIndex {
         case 0:
-            companiesVC?.setData(miningData: equipment1.miningData.sorted{return $0.company < $1.company})
+            companiesVC?.setData(miningData: equipment1.miningData.sorted {return $0.company < $1.company})
             companiesVC?.updateUI()
         case 1:
             miningCoinsVC?.setData(coinData: equipment1.coinData, miningData: equipment1.miningData)

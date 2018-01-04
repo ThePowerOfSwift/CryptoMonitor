@@ -10,7 +10,7 @@ import UIKit
 
 class AboutAppViewController: UIViewController {
 
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak private var textView: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +19,7 @@ class AboutAppViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func setText(){
+    func setText() {
         var attributedString = "Powered by API:"
         attributedString.append("\n"+"https://www.cryptocompare.com/api#")
         attributedString.append("\n"+"Developed by SergLam.")
@@ -27,7 +27,4 @@ class AboutAppViewController: UIViewController {
         attributedString.append("\n"+"https://github.com/SergLam/CryptoMonitor")
         textView.text = attributedString
     }
-
-
-
 }

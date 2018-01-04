@@ -10,31 +10,31 @@ import UIKit
 
 class CompanyDetailsViewController: UIViewController {
     
-    @IBOutlet weak var companyImage: UIImageView!
+    @IBOutlet weak private var companyImage: UIImageView!
     
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak private var coinImage: UIImageView!
     
-    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak private var companyName: UILabel!
     
-    @IBOutlet weak var isRecomended: UILabel!
+    @IBOutlet weak private var isRecomended: UILabel!
     
-    @IBOutlet weak var isSponsored: UILabel!
+    @IBOutlet weak private var isSponsored: UILabel!
     
-    @IBOutlet weak var companyAlgorithm: UILabel!
+    @IBOutlet weak private var companyAlgorithm: UILabel!
     
-    @IBOutlet weak var powerConsumption: UILabel!
+    @IBOutlet weak private var powerConsumption: UILabel!
     
-    @IBOutlet weak var costCurrencyLb: UILabel!
+    @IBOutlet weak private var costCurrencyLb: UILabel!
     
-    @IBOutlet weak var equipmentType: UILabel!
+    @IBOutlet weak private var equipmentType: UILabel!
     
-    @IBOutlet weak var hashPerSec: UILabel!
+    @IBOutlet weak private var hashPerSec: UILabel!
     
-    @IBOutlet weak var companyURL: UITextView!
+    @IBOutlet weak private var companyURL: UITextView!
     
-    @IBOutlet weak var affiliateURL: UITextView!
+    @IBOutlet weak private var affiliateURL: UITextView!
     
-    var data: MiningData? = nil
+    var data: MiningData?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,21 +51,21 @@ class CompanyDetailsViewController: UIViewController {
         self.navigationController?.isNavigationBarHidden = true
     }
     
-    func setData(_ data: MiningData){
+    func setData(_ data: MiningData) {
         self.data = data
     }
     
-    func updateUI(){
+    func updateUI() {
         guard let company = data else {
             return
         }
         self.title = company.company
         let baseURL = NetworkService.webBaseURL
-        loadImage(URL: baseURL+company.logoUrl, to: companyImage)
-        loadImage(URL: baseURL+company.currenciesAvailableLogo, to: coinImage)
+        loadImage(URL: baseURL + company.logoUrl, to: companyImage)
+        loadImage(URL: baseURL + company.currenciesAvailableLogo, to: coinImage)
         companyName.text = "Name: " + "\(company.name)"
-        isRecomended.text = "Recomended: " + "\(BtS(company.recomended))"
-        isSponsored.text = "Sponsored: " + "\(BtS(company.sponsored))"
+        isRecomended.text = "Recomended: " + "\(bts(company.recomended))"
+        isSponsored.text = "Sponsored: " + "\(bts(company.sponsored))"
         companyAlgorithm.text = "Algorithm: " + "\(company.algorithm)"
         powerConsumption.text = "PowerConsum.:\n" + "\(company.powerConsumption)" + " W"
         costCurrencyLb.text = "Cost: " + "\(company.cost)" + " " + "\(company.currency)"
@@ -78,7 +78,7 @@ class CompanyDetailsViewController: UIViewController {
     }
     
     // MARK: Image loading method
-    func loadImage(URL: String, to: UIImageView){
+    func loadImage(URL: String, to: UIImageView) {
         if NetworkReachability.isConnectedToNetwork() {
             if let image = NetworkService().cachedImage(for: URL) {
                 to.image = image
@@ -93,7 +93,7 @@ class CompanyDetailsViewController: UIViewController {
     }
     
     // MARK: Bool to string method
-    func BtS(_ b: Bool) -> String {
+    func bts(_ b: Bool) -> String {
         switch b {
         case true:
             return "YES"
@@ -102,24 +102,4 @@ class CompanyDetailsViewController: UIViewController {
         }
     }
     
-    /*
-     var id = "0"
-     var parentId = "0"
-     var company = "NoName"
-     var url = ""
-     var logoUrl = ""
-     var name = "NoName"
-     var recomended = false
-     var sponsored = false
-     var affiliateURL = ""
-     var algorithm = ""
-     var hashesPerSecond = "10"
-     var cost = "0.05"
-     var currency = ""
-     var equipmentType = ""
-     var powerConsumption = "5"
-     var currenciesAvailable = ""
-     var currenciesAvailableLogo = ""
-     var currenciesAvailableName = ""
-     */
 }

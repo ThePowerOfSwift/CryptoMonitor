@@ -14,7 +14,7 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
     
     var miningData: [MiningData] = []
     
-    @IBOutlet weak var coinsTable: UITableView!
+    @IBOutlet weak private var coinsTable: UITableView!
     
     let cellIdentifier = "MiningCoinsTableViewCell"
     
@@ -28,7 +28,7 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
         self.coinsTable.reloadData()
     }
     
-    func configCoinsTable(){
+    func configCoinsTable() {
         coinsTable.register(UINib(nibName: cellIdentifier,
                                   bundle: Bundle.main),
                             forCellReuseIdentifier: cellIdentifier)
@@ -38,16 +38,14 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
         coinsTable.rowHeight = 120
     }
     
-    func setData(coinData: [CoinData], miningData: [MiningData]){
+    func setData(coinData: [CoinData], miningData: [MiningData]) {
         self.coinData = coinData
         self.miningData = miningData
-        for (index, data) in coinData.enumerated(){
-            for data1 in miningData{
-                if data.symbol == data1.currenciesAvailable {
+        for (index, data) in coinData.enumerated() {
+            for data1 in miningData where data.symbol == data1.currenciesAvailable {
                     self.coinData[index].imageURL = data1.currenciesAvailableLogo
                 }
             }
-        }
     }
     
     // MARK: TableView delegate methods
@@ -64,7 +62,9 @@ class MiningCoinsViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = coinsTable.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MiningCoinsTableViewCell
+        guard let cell = coinsTable.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MiningCoinsTableViewCell else {
+            return UITableViewCell()
+        }
         cell.configure(coinData: coinData[indexPath.row])
         cell.selectionStyle = .none
         return cell

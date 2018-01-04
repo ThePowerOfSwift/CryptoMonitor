@@ -14,7 +14,7 @@ class CompaniesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let cellName = "CompanyTableViewCell"
     
-    @IBOutlet weak var companiesTable: UITableView!
+    @IBOutlet weak private var companiesTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +25,7 @@ class CompaniesViewController: UIViewController, UITableViewDelegate, UITableVie
         super.viewWillAppear(animated)
     }
     
-    func configureTableView(){
+    func configureTableView() {
         companiesTable.register(UINib(nibName: cellName,
                                       bundle: Bundle.main), forCellReuseIdentifier: cellName)
         companiesTable.delegate = self
@@ -34,15 +34,15 @@ class CompaniesViewController: UIViewController, UITableViewDelegate, UITableVie
         companiesTable.rowHeight = 120
     }
     
-    func setData(miningData: [MiningData]){
+    func setData(miningData: [MiningData]) {
         self.miningData = miningData
     }
     
-    func updateUI(){
+    func updateUI() {
        companiesTable.reloadData()
     }
     
-    //MARK: Table View Delegete methods
+    // MARK: Table View Delegete methods
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let data = miningData[indexPath.row]
@@ -66,7 +66,9 @@ class CompaniesViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = companiesTable.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as! CompanyTableViewCell
+        guard let cell = companiesTable.dequeueReusableCell(withIdentifier: cellName, for: indexPath) as? CompanyTableViewCell else {
+            return UITableViewCell()
+        }
         cell.configure(miningData[indexPath.row])
         cell.selectionStyle = .none
         return cell

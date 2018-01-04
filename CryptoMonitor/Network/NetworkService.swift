@@ -22,27 +22,27 @@ class NetworkService {
         return "https://www.cryptocompare.com"
     }
     
-    static func requestApi(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
-        if NetworkReachability.isConnectedToNetwork(){
-            Alamofire.request(apiBaseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
+    static func requestApi(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void) {
+        if NetworkReachability.isConnectedToNetwork() {
+            Alamofire.request(apiBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
             DispatchQueue.global().async {
                 completionHandler(dataResponse)
             }
         }
-        } else{
+        } else {
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
     }
     
-    static func requestWeb(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void){
-        if NetworkReachability.isConnectedToNetwork(){
-            Alamofire.request(webBaseURL+endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON{ dataResponse in
+    static func requestWeb(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void) {
+        if NetworkReachability.isConnectedToNetwork() {
+            Alamofire.request(webBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
                 DispatchQueue.global().async {
                     completionHandler(dataResponse)
                 }
             }
-        } else{
+        } else {
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
@@ -58,11 +58,11 @@ class NetworkService {
         }
     }
     
-    //MARK: = Image Caching (to RAM Memory)
+    // MARK: Image Caching (to RAM Memory)
     
     static let imageCache = AutoPurgingImageCache(
-        memoryCapacity: UInt64(100*1024*1024),
-        preferredMemoryUsageAfterPurge: UInt64(60*1024*1024)
+        memoryCapacity: UInt64(100 * 1024 * 1024),
+        preferredMemoryUsageAfterPurge: UInt64(60 * 1024 * 1024)
     )
     
     func cache(_ image: Image, for url: String) {
@@ -73,7 +73,7 @@ class NetworkService {
         return NetworkService.imageCache.image(withIdentifier: url)
     }
     
-    //MARK: Image Caching (disk Storage)
+    // MARK: Image Caching (disk Storage)
     
 //    func diskImageDownloader() -> ImageDownloader {
 //        // 1024 * 1024 = MB

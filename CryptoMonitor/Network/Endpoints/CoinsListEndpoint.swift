@@ -16,10 +16,9 @@ enum CoinsListEndpoint: EndpointProtocol {
 }
 
 extension CoinsListEndpoint {
-    
-    var path: String{
+    var path: String {
         switch self {
-        case .getCoinsList():
+        case .getCoinsList:
             return "/data/all/coinlist"
         case .loadCoinImage(let url):
             return url
@@ -29,7 +28,7 @@ extension CoinsListEndpoint {
         
     }
     
-    var method: HTTPMethod{
+    var method: HTTPMethod {
         switch self {
         case .getCoinsList:
             return .get
@@ -39,7 +38,7 @@ extension CoinsListEndpoint {
         
     }
     
-    var parameters: [String : Any]?{
+    var parameters: [String: Any]? {
         return ["": NSObject.self]
     }
 }

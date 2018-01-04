@@ -11,11 +11,11 @@ import Alamofire
 
 class MiningCoinsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak private var coinImage: UIImageView!
     
-    @IBOutlet weak var coinLabel: UILabel!
+    @IBOutlet weak private var coinLabel: UILabel!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
     var request: Request?
     var coinData: CoinData?
@@ -45,23 +45,34 @@ class MiningCoinsTableViewCell: UITableViewCell {
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + (coinData?.imageURL)! ) {
-            updateCell(name: (coinData?.symbol)!, image: image)
+        guard let imgUrl = coinData?.imageURL else {
+            return
+        }
+        guard let symbol = coinData?.symbol else {
+            return
+        }
+        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + imgUrl ) {
+            updateCell(name: symbol, image: image)
             return
         }
         downloadImage()
     }
     
     func downloadImage() {
-        // TODO: Core Data Image Loading
+        guard let imgUrl = coinData?.imageURL else {
+            return
+        }
+        guard let symbol = coinData?.symbol else {
+            return
+        }
         if NetworkReachability.isConnectedToNetwork() {
-            request = NetworkService().downloadImage(for: NetworkService.webBaseURL + (coinData?.imageURL)!, completion: {image in
-                self.updateCell(name: (self.coinData?.symbol)!, image: image)
+            request = NetworkService().downloadImage(for: NetworkService.webBaseURL + imgUrl, completion: {image in
+                self.updateCell(name: symbol, image: image)
             })
         }
     }
     
-    func updateCell(name: String, image: UIImage){
+    func updateCell(name: String, image: UIImage) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         coinImage.image = image

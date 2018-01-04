@@ -18,7 +18,7 @@ extension UIViewController {
         frame.backgroundColor = UIColor.white
         frame.tag = tag
         
-        let label = UILabel(frame: CGRect(x: 10, y: screenSize.height/4, width: screenSize.width-20, height: screenSize.height/4))
+        let label = UILabel(frame: CGRect(x: 10, y: screenSize.height / 4, width: screenSize.width - 20, height: screenSize.height / 4))
         label.textAlignment = .center
         label.textColor = UIColor.black
         label.numberOfLines = 3
@@ -27,12 +27,12 @@ extension UIViewController {
         
         let button = UIButton(type: .custom)
         
-        button.frame = CGRect(x: screenSize.width/4, y: (screenSize.height/4)*3, width: screenSize.width/2, height: 100)
+        button.frame = CGRect(x: (screenSize.width / 4), y: ((screenSize.height / 4) * 3), width: (screenSize.width / 2), height: 100)
         button.layer.cornerRadius = 0.25 * button.bounds.size.width
         button.setTitle("Fuck you", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.clipsToBounds = true
-        button.backgroundColor = UIColor(red: 107/255, green: 116/255, blue: 139/255, alpha: 1)
+        button.backgroundColor = UIColor(red: (107 / 255), green: (116 / 255), blue: (139 / 255), alpha: 1)
         button.addTarget(self, action: #selector(thumbsUpButtonPressed), for: .touchUpInside)
         frame.addSubview(button)
         
@@ -48,6 +48,5 @@ extension UIViewController {
     @objc func thumbsUpButtonPressed() {
         print("thumbs up button pressed")
     }
-    
     
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum NetworkParamsKeys{
+enum NetworkParamsKeys {
 
     enum CoinList: String {
         // https://min-api.cryptocompare.com/data/all/coinlist
@@ -38,7 +38,7 @@ enum NetworkParamsKeys{
         case sponsored = "Sponsored"
     }
    
-    enum Equipment: String{
+    enum Equipment: String {
         //https://www.cryptocompare.com/api/data/miningequipment/
         case response = "Response"
         case message = "Message"
@@ -76,6 +76,4 @@ enum NetworkParamsKeys{
         case previousTotalCoinsMined = "PreviousTotalCoinsMined"
         case blockReward = "BlockReward"
     }
-    
 }
-

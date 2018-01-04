@@ -11,13 +11,13 @@ import Alamofire
 
 class CompanyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
-    @IBOutlet weak var companyLogo: UIImageView!
+    @IBOutlet weak private var companyLogo: UIImageView!
     
-    @IBOutlet weak var companyName: UILabel!
+    @IBOutlet weak private var companyName: UILabel!
     
-    var miningData : MiningData? = nil
+    var miningData: MiningData?
     var request: Request?
     
     override func awakeFromNib() {
@@ -40,23 +40,28 @@ class CompanyTableViewCell: UITableViewCell {
     }
     
     func loadImage() {
-        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + miningData!.logoUrl) {
-            updateCell(name: miningData!.company, image: image)
+        guard let data = miningData else {
+            return
+        }
+        if let image = NetworkService().cachedImage(for: NetworkService.webBaseURL + data.logoUrl) {
+            updateCell(name: data.company, image: image)
             return
         }
         downloadImage()
     }
     
     func downloadImage() {
-        // TODO: Core Data Image Loading
+        guard let data = miningData else {
+            return
+        }
         if NetworkReachability.isConnectedToNetwork() {
-            request = NetworkService().downloadImage(for: NetworkService.webBaseURL + miningData!.logoUrl, completion: {image in
-                self.updateCell(name: self.miningData!.company, image: image)
+            request = NetworkService().downloadImage(for: NetworkService.webBaseURL + data.logoUrl, completion: { image in
+                self.updateCell(name: data.company, image: image)
             })
         }
     }
     
-    func updateCell(name: String, image: UIImage){
+    func updateCell(name: String, image: UIImage) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         companyName.text = name

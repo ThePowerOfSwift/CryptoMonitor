@@ -12,11 +12,11 @@ import AlamofireImage
 
 class CoinsListTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var coinImage: UIImageView!
+    @IBOutlet weak private var coinImage: UIImageView!
     
-    @IBOutlet weak var coinName: UILabel!
+    @IBOutlet weak private var coinName: UILabel!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var activityIndicator: UIActivityIndicatorView!
     
     var request: Request?
     var coin: CoinInfo!
@@ -63,14 +63,14 @@ class CoinsListTableViewCell: UITableViewCell {
         }
     }
     
-    func updateCell(name: String, image: UIImage){
+    func updateCell(name: String, image: UIImage) {
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
         self.coinName.text = formatCoinName(name)
         self.coinImage.image = image
     }
     
-    func formatCoinName(_ name: String)->String{
+    func formatCoinName(_ name: String) -> String {
         if name.count > 15 {
             return name.replacingOccurrences(of: " ", with: "\n")
         } else {
