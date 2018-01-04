@@ -44,6 +44,13 @@ class CompaniesViewController: UIViewController, UITableViewDelegate, UITableVie
     
     //MARK: Table View Delegete methods
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let data = miningData[indexPath.row]
+        let companyDetailsVC = CompanyDetailsViewController()
+        companyDetailsVC.setData(data)
+        navigationController?.pushViewController(companyDetailsVC, animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 120.0
     }

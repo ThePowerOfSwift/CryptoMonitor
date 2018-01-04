@@ -14,6 +14,7 @@ class AboutAppViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "About app"
         setText()
         // Do any additional setup after loading the view.
     }

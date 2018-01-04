@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import AlamofireImage
 
 class CoinsListTableViewCell: UITableViewCell {
     
@@ -55,7 +56,8 @@ class CoinsListTableViewCell: UITableViewCell {
     func downloadImage() {
         // TODO: Core Data Image Loading
         if NetworkReachability.isConnectedToNetwork() {
-        request = NetworkService().downloadImage(for: coin.baseImgUrl + coin.imgUrl, completion: {image in
+            let fullUrl = coin.baseImgUrl + coin.imgUrl
+        request = NetworkService().downloadImage(for: fullUrl, completion: {image in
             self.updateCell(name: self.coin.coinName, image: image)
         })
         }
