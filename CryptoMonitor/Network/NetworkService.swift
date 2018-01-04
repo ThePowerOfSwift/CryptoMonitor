@@ -52,7 +52,10 @@ class NetworkService {
     @discardableResult
     func downloadImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
         return Alamofire.request(url).responseImage { response in
-            guard let image = response.result.value else { return }
+            guard let image = response.result.value else {
+                completion(UIImage(named: "no_img")!)
+                return
+            }
             completion(image)
             self.cache(image, for: url)
         }

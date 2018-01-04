@@ -25,7 +25,7 @@ extension UIViewController {
         
         DispatchQueue.main.async {
             //Create the activity indicator
-            
+            UIApplication.shared.beginIgnoringInteractionEvents()
             let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: style)
             
             // Set custom size to indicator
@@ -51,7 +51,7 @@ extension UIViewController {
         //Again, we need to ensure the UI is updated from the main thread!
         DispatchQueue.main.async {
             //Here we find the `UIActivityIndicatorView` and remove it from the view
-            
+            UIApplication.shared.endIgnoringInteractionEvents()
             if let activityIndicator = self.view.subviews.filter({ $0.tag == self.activityIndicatorTag}).first as? UIActivityIndicatorView {
                 activityIndicator.stopAnimating()
                 activityIndicator.removeFromSuperview()
