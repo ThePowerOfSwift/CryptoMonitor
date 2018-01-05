@@ -20,6 +20,7 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
         super.viewDidLoad()
         navigationItem.title = "Select coin"
         configureCoinsTable()
+        self.configureBackBarButtonItem()
         loadData()
     }
     
@@ -61,6 +62,17 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
                 self.navigationController?.topViewController?.showNoInternetView()
             }
         }
+    }
+    
+    // MARK: TableView Delegate methods
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let topPairsVC = TopPairsDetailsViewController()
+        guard let equip = self.equipment else {
+            return
+        }
+        topPairsVC.setData(coinData: equip.coinData[indexPath.row])
+        navigationController?.pushViewController(topPairsVC, animated: true)
     }
     
     // MARK: TableView Data Source methods

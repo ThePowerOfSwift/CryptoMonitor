@@ -76,4 +76,10 @@ enum NetworkParamsKeys {
         case previousTotalCoinsMined = "PreviousTotalCoinsMined"
         case blockReward = "BlockReward"
     }
+    
+    enum TopPairs: String {
+        case fsym
+        case tsym
+        case limit
+    }
 }
