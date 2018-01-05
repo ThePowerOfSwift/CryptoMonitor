@@ -38,6 +38,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         navigationController?.isNavigationBarHidden = true
         super.viewWillAppear(true)
         self.configureBackBarButtonItem()
+        coinsTable.reloadData()
     }
     
     // MARK: Load data to table

@@ -77,7 +77,7 @@ class MiningCoinsTableViewCell: UITableViewCell {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         coinImage.image = image
-        //coinLabel.text = name
+        coinLabel.text = name
     }
     
 }

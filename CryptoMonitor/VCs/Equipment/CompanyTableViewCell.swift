@@ -65,7 +65,7 @@ class CompanyTableViewCell: UITableViewCell {
     func updateCell(name: String, image: UIImage) {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
-        //companyName.text = name
+        companyName.text = name
         companyLogo.image = image
     }
     

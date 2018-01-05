@@ -20,6 +20,8 @@
 		7C2BAF881FE4234300B5C8AD /* CoinsListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C2BAF861FE4234300B5C8AD /* CoinsListTableViewCell.xib */; };
 		7C5287501FE1413B00B885B7 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */; };
 		7C5287551FE14B3F00B885B7 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C5287541FE14B3F00B885B7 /* NetworkService.swift */; };
+		7C627B5E1FFF95D100F3D893 /* TopPairsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C627B5C1FFF95D100F3D893 /* TopPairsDetailsViewController.swift */; };
+		7C627B5F1FFF95D100F3D893 /* TopPairsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C627B5D1FFF95D100F3D893 /* TopPairsDetailsViewController.xib */; };
 		7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */; };
 		7C70080C1FF27A2400EB3F28 /* CompaniesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */; };
 		7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */; };
@@ -80,6 +82,8 @@
 		7C2BAF861FE4234300B5C8AD /* CoinsListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsListTableViewCell.xib; sourceTree = "<group>"; };
 		7C52874F1FE1413B00B885B7 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
 		7C5287541FE14B3F00B885B7 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		7C627B5C1FFF95D100F3D893 /* TopPairsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPairsDetailsViewController.swift; sourceTree = "<group>"; };
+		7C627B5D1FFF95D100F3D893 /* TopPairsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopPairsDetailsViewController.xib; sourceTree = "<group>"; };
 		7C6F69FB1FE2A7C90072A5F6 /* UIActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivityIndicator.swift; sourceTree = "<group>"; };
 		7C70080A1FF27A2400EB3F28 /* CompaniesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompaniesViewController.swift; sourceTree = "<group>"; };
 		7C70080B1FF27A2400EB3F28 /* CompaniesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompaniesViewController.xib; sourceTree = "<group>"; };
@@ -198,6 +202,15 @@
 				7C2BAF7C1FE3EB9400B5C8AD /* NetworkParamsKeys.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		7C627B5B1FFF959200F3D893 /* TopPairsDetails */ = {
+			isa = PBXGroup;
+			children = (
+				7C627B5C1FFF95D100F3D893 /* TopPairsDetailsViewController.swift */,
+				7C627B5D1FFF95D100F3D893 /* TopPairsDetailsViewController.xib */,
+			);
+			path = TopPairsDetails;
 			sourceTree = "<group>";
 		};
 		7C7008071FF279D000EB3F28 /* CompaniesTab */ = {
@@ -338,6 +351,7 @@
 		7CB7097C1FE02E5A009E73F9 /* TopPairs */ = {
 			isa = PBXGroup;
 			children = (
+				7C627B5B1FFF959200F3D893 /* TopPairsDetails */,
 				7CB7097D1FE02E73009E73F9 /* TopPairsViewController.swift */,
 				7CB7097E1FE02E73009E73F9 /* TopPairsViewController.xib */,
 			);
@@ -481,6 +495,7 @@
 				7CE3826E1FFD14B0004E391F /* CompanyTableViewCell.xib in Resources */,
 				7CB709801FE02E73009E73F9 /* TopPairsViewController.xib in Resources */,
 				7C94E25D1FF51C2600641C0A /* MiningCoinsTableViewCell.xib in Resources */,
+				7C627B5F1FFF95D100F3D893 /* TopPairsDetailsViewController.xib in Resources */,
 				7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */,
 				7C70080D1FF27A2400EB3F28 /* CompaniesViewController.xib in Resources */,
 				7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */,
@@ -593,6 +608,7 @@
 				7CE382731FFD30CB004E391F /* CompanyDetailsViewController.swift in Sources */,
 				7C6F69FC1FE2A7C90072A5F6 /* UIActivityIndicator.swift in Sources */,
 				7CE3826D1FFD14B0004E391F /* CompanyTableViewCell.swift in Sources */,
+				7C627B5E1FFF95D100F3D893 /* TopPairsDetailsViewController.swift in Sources */,
 				7CB709441FDFF403009E73F9 /* CryptoMonitor.xcdatamodeld in Sources */,
 				7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */,
 				7C2BAF871FE4234300B5C8AD /* CoinsListTableViewCell.swift in Sources */,

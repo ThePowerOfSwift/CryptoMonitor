@@ -63,11 +63,11 @@ class CompanyDetailsViewController: UIViewController {
         let baseURL = NetworkService.webBaseURL
         loadImage(URL: baseURL + company.logoUrl, to: companyImage)
         loadImage(URL: baseURL + company.currenciesAvailableLogo, to: coinImage)
-        companyName.text = "Name: " + "\(company.name)"
+        companyName.text = "Name:\n" + "\(company.name)"
         isRecomended.text = "Recomended: " + "\(bts(company.recomended))"
         isSponsored.text = "Sponsored: " + "\(bts(company.sponsored))"
         companyAlgorithm.text = "Algorithm: " + "\(company.algorithm)"
-        powerConsumption.text = "PowerConsum.:\n" + "\(company.powerConsumption)" + " W"
+        powerConsumption.text = "PowerConsum.:\n" + String(company.powerConsumption) + " W"
         costCurrencyLb.text = "Cost: " + "\(company.cost)" + " " + "\(company.currency)"
         equipmentType.text = "EquipmentType: " + "\(company.equipmentType)"
         hashPerSec.text = "HashesPerSecond: " + "\(company.hashesPerSecond)"

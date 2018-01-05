@@ -37,11 +37,12 @@ class NetworkService {
     
     static func requestWeb(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void) {
         if NetworkReachability.isConnectedToNetwork() {
-            Alamofire.request(webBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
+            let request = Alamofire.request(webBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
                 DispatchQueue.global().async {
                     completionHandler(dataResponse)
                 }
             }
+            debugPrint(request)
         } else {
             let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
             alert.show()
@@ -51,7 +52,7 @@ class NetworkService {
     // MARK: Image downloading
     @discardableResult
     func downloadImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
-        return Alamofire.request(url).responseImage { response in
+        let request: Request = Alamofire.request(url).responseImage { response in
             guard let image = response.result.value else {
                 completion(UIImage(named: "no_img")!)
                 return
@@ -59,6 +60,8 @@ class NetworkService {
             completion(image)
             self.cache(image, for: url)
         }
+        //debugPrint(request)
+        return request
     }
     
     // MARK: Image Caching (to RAM Memory)

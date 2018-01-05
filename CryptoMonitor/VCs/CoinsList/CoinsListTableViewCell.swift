@@ -67,7 +67,7 @@ class CoinsListTableViewCell: UITableViewCell {
     func updateCell(name: String, image: UIImage) {
         self.activityIndicator.stopAnimating()
         self.activityIndicator.isHidden = true
-        //self.coinName.text = formatCoinName(name)
+        self.coinName.text = formatCoinName(name)
         self.coinImage.image = image
     }
     
