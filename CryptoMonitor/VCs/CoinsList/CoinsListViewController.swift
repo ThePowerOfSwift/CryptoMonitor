@@ -26,6 +26,8 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     let networkService = NetworkService()
     
+    let cellName = "CoinsListTableViewCell"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configCoinsTable()
@@ -58,9 +60,9 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     // MARK: CoinTable delegate methods
     
     func configCoinsTable() {
-        coinsTable.register(UINib(nibName: "CoinsListTableViewCell",
+        coinsTable.register(UINib(nibName: cellName,
                                   bundle: Bundle.main),
-                            forCellReuseIdentifier: "CoinsListTableViewCell")
+                            forCellReuseIdentifier: cellName)
         coinsTable.delegate = self
         coinsTable.dataSource = self
         //coinsTable.separatorStyle = .none
@@ -70,7 +72,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "CoinsListTableViewCell") as? CoinsListTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellName) as? CoinsListTableViewCell else {
             fatalError("Unable to get cell")
         }
         if !isSearch {

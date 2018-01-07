@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1220DA1CD5677A492E4901B6 /* Pods_CryptoMonitor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */; };
+		7C07B17420026AB3003A30FB /* TopPairs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07B17320026AB3003A30FB /* TopPairs.swift */; };
+		7C07B17620026BF9003A30FB /* PairData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07B17520026BF9003A30FB /* PairData.swift */; };
+		7C07B17920027D68003A30FB /* PairsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C07B17720027D68003A30FB /* PairsTableViewCell.swift */; };
+		7C07B17A20027D68003A30FB /* PairsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C07B17820027D68003A30FB /* PairsTableViewCell.xib */; };
 		7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */; };
 		7C249F1D1FEA800E00A4AE4F /* CoinsDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */; };
 		7C249F1E1FEA800E00A4AE4F /* CoinsDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */; };
@@ -71,6 +75,10 @@
 /* Begin PBXFileReference section */
 		40B998CD5F1FD0C8889DC127 /* Pods-CryptoMonitor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CryptoMonitor.release.xcconfig"; path = "Pods/Target Support Files/Pods-CryptoMonitor/Pods-CryptoMonitor.release.xcconfig"; sourceTree = "<group>"; };
 		46516DA2E7F1ED56759FF7AC /* Pods_CryptoMonitor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CryptoMonitor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C07B17320026AB3003A30FB /* TopPairs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopPairs.swift; sourceTree = "<group>"; };
+		7C07B17520026BF9003A30FB /* PairData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairData.swift; sourceTree = "<group>"; };
+		7C07B17720027D68003A30FB /* PairsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairsTableViewCell.swift; sourceTree = "<group>"; };
+		7C07B17820027D68003A30FB /* PairsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PairsTableViewCell.xib; sourceTree = "<group>"; };
 		7C0B5FF51FEBD6C900A26972 /* ConfigureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureViewController.swift; sourceTree = "<group>"; };
 		7C249F1B1FEA800E00A4AE4F /* CoinsDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinsDetailsViewController.swift; sourceTree = "<group>"; };
 		7C249F1C1FEA800E00A4AE4F /* CoinsDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoinsDetailsViewController.xib; sourceTree = "<group>"; };
@@ -146,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C07B17220025B59003A30FB /* TopPairs */ = {
+			isa = PBXGroup;
+			children = (
+				7C07B17320026AB3003A30FB /* TopPairs.swift */,
+				7C07B17520026BF9003A30FB /* PairData.swift */,
+			);
+			path = TopPairs;
+			sourceTree = "<group>";
+		};
 		7C249F1A1FEA7E8C00A4AE4F /* CoinDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +186,7 @@
 		7C2BAF761FE3D8CB00B5C8AD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7C07B17220025B59003A30FB /* TopPairs */,
 				7C7008141FF2AB1D00EB3F28 /* Equipment */,
 				7C2BAF771FE3D94000B5C8AD /* CoinsList */,
 			);
@@ -212,6 +230,8 @@
 			children = (
 				7C627B5C1FFF95D100F3D893 /* TopPairsDetailsViewController.swift */,
 				7C627B5D1FFF95D100F3D893 /* TopPairsDetailsViewController.xib */,
+				7C07B17720027D68003A30FB /* PairsTableViewCell.swift */,
+				7C07B17820027D68003A30FB /* PairsTableViewCell.xib */,
 			);
 			path = TopPairsDetails;
 			sourceTree = "<group>";
@@ -504,6 +524,7 @@
 				7C7008111FF27A4900EB3F28 /* MiningCoinsViewController.xib in Resources */,
 				7CB709491FDFF403009E73F9 /* LaunchScreen.storyboard in Resources */,
 				7C79F72B1FE12F8F008874D6 /* CoinsListViewController.xib in Resources */,
+				7C07B17A20027D68003A30FB /* PairsTableViewCell.xib in Resources */,
 				7CB709851FE02EB2009E73F9 /* EquipmentViewController.xib in Resources */,
 				7C79F7271FE1289F008874D6 /* AboutAppViewController.xib in Resources */,
 				7C2BAF881FE4234300B5C8AD /* CoinsListTableViewCell.xib in Resources */,
@@ -619,6 +640,7 @@
 				7C0B5FF61FEBD6C900A26972 /* ConfigureViewController.swift in Sources */,
 				7C7008101FF27A4900EB3F28 /* MiningCoinsViewController.swift in Sources */,
 				7C79F7261FE1289F008874D6 /* AboutAppViewController.swift in Sources */,
+				7C07B17420026AB3003A30FB /* TopPairs.swift in Sources */,
 				7C70081A1FF2AC1700EB3F28 /* CoinData.swift in Sources */,
 				7C2BAF791FE3D95C00B5C8AD /* CoinsList.swift in Sources */,
 				7CB7097F1FE02E73009E73F9 /* TopPairsViewController.swift in Sources */,
@@ -630,9 +652,11 @@
 				7C2BAF7B1FE3DD4E00B5C8AD /* CoinInfo.swift in Sources */,
 				7CB709841FE02EB2009E73F9 /* EquipmentViewController.swift in Sources */,
 				7C79F72A1FE12F8F008874D6 /* CoinsListViewController.swift in Sources */,
+				7C07B17920027D68003A30FB /* PairsTableViewCell.swift in Sources */,
 				7C7008181FF2ABED00EB3F28 /* MiningData.swift in Sources */,
 				7C8EF82F1FF3AE8B00E7D331 /* EquipmentEndpoint.swift in Sources */,
 				7C2BAF7D1FE3EB9400B5C8AD /* NetworkParamsKeys.swift in Sources */,
+				7C07B17620026BF9003A30FB /* PairData.swift in Sources */,
 				7C2BAF731FE3C9B100B5C8AD /* CoinsListEndpoint.swift in Sources */,
 				7C94E25C1FF51C2600641C0A /* MiningCoinsTableViewCell.swift in Sources */,
 			);

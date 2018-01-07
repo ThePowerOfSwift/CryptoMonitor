@@ -76,7 +76,10 @@ class EquipmentViewController: UIViewController {
             } else {
                 selectedVC = companiesVC
             }
-            changeVC(vc: selectedVC!)
+            guard let VC = selectedVC else {
+                return
+            }
+            changeVC(vc: VC)
             updateCurrentTab(selectedTab)
         case 1:
             if miningCoinsVC == nil {
@@ -85,7 +88,10 @@ class EquipmentViewController: UIViewController {
             } else {
                 selectedVC = miningCoinsVC
             }
-            changeVC(vc: selectedVC!)
+            guard let VC = selectedVC else {
+                return
+            }
+            changeVC(vc: VC)
             updateCurrentTab(selectedTab)
         default:
             return

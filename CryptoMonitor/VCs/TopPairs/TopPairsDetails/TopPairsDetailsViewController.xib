@@ -12,7 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TopPairsDetailsViewController" customModule="CryptoMonitor" customModuleProvider="target">
             <connections>
-                <outlet property="debugTextView" destination="YlF-Gf-ZdH" id="8fD-TY-Une"/>
+                <outlet property="pairsTable" destination="GSG-Iq-VXI" id="jLA-zx-PYA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,19 +21,17 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Response Debug" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YlF-Gf-ZdH">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GSG-Iq-VXI">
                     <rect key="frame" x="10" y="30" width="355" height="627"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                </textView>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="YlF-Gf-ZdH" secondAttribute="bottom" constant="10" id="YwQ-mY-pzn"/>
-                <constraint firstItem="YlF-Gf-ZdH" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="emj-kf-1Hq"/>
-                <constraint firstItem="YlF-Gf-ZdH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="g5H-XR-8F6"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="YlF-Gf-ZdH" secondAttribute="trailing" constant="10" id="ycq-HU-3bW"/>
+                <constraint firstItem="GSG-Iq-VXI" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="0H3-DK-Njq"/>
+                <constraint firstItem="GSG-Iq-VXI" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="KjO-XV-ooK"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="GSG-Iq-VXI" secondAttribute="trailing" constant="10" id="Zjo-5D-c1s"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="GSG-Iq-VXI" secondAttribute="bottom" constant="10" id="v9Q-Oo-RfG"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
         </view>

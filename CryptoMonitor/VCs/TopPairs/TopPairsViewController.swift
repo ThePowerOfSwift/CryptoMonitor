@@ -91,7 +91,7 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MiningCoinsTableViewCell else {
             return UITableViewCell()
         }
-        
+        cell.selectionStyle = .none
         cell.configure(coinData: equip.coinData[indexPath.row])
         return cell
     }

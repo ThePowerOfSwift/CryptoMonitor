@@ -78,8 +78,17 @@ enum NetworkParamsKeys {
     }
     
     enum TopPairs: String {
+        // Params for request
         case fsym
         case tsym
         case limit
+        // Params to parse JSON
+        case response = "Response"
+        case data = "Data"
+        case exchange
+        case fromSymbol
+        case toSymbol
+        case volume24h
+        case volume24hTo
     }
 }
