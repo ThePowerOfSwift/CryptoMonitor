@@ -30,6 +30,7 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setAccesibilityLabels()
         configCoinsTable()
         self.coinsSearchBar.delegate = self
         loadData()
@@ -183,6 +184,12 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         searchCoins.sort { return $0.name < $1.name }
+    }
+    
+    // MARK: set testing labels
+    func setAccesibilityLabels() {
+        self.coinsTable.accessibilityIdentifier = "coinsTable"
+        self.coinsSearchBar.accessibilityIdentifier = "coinsSearchBar"
     }
     
 }
