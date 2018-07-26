@@ -83,22 +83,16 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             cell.configure(with: searchCoins[indexPath.row])
             return cell
         }
-        
     }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if !isSearch {
             return sortedCoins.count
         } else {
             return searchCoins.count
         }
-        
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: забыл привязать XIB
-        // сделать метод ЮИ контролеле в котором сетить монету
-        // и потом передавать его навигейшн контролеру
         let coinsDetailsVC = CoinsDetailsViewController(nibName: "CoinsDetailsViewController", bundle: nil)
         if !isSearch {
             coinsDetailsVC.setCoin(coin: sortedCoins[indexPath.row])
@@ -107,20 +101,18 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         self.navigationController?.pushViewController(coinsDetailsVC, animated: true)
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128.0
     }
-    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128.0
     }
-    
     func loadCoinsList() {
         if NetworkReachability.isConnectedToNetwork() {
             self.startActivityIndicator()
         }
-        NetworkService.requestApi(endpoint: CoinsListEndpoint.getCoinsList(), completionHandler: {(dataResponse) -> Void in
+        NetworkService.requestApi(endpoint: CoinsListEndpoint.getCoinsList(),
+                                  completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             guard let value = dataResponse.value else {
                 return
@@ -130,7 +122,6 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             self.reloadCoinsTable()
         })
     }
-    
     func reloadCoinsTable() {
         DispatchQueue.main.async {
             if self.isViewLoaded && (self.view.window != nil) {
@@ -138,30 +129,24 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
             }
         }
     }
-    
     // MARK: Search bar delegates methods
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
        //    Tells the delegate that the user changed the search text.
         self.search(searchBar)
     }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         self.search(searchBar)
     }
-    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         self.search(searchBar)
     }
-    
     // MARK: Search method implementation
     func search(_ searchBar: UISearchBar) {
         if let text = searchBar.text, text.isEmpty {
             self.isSearch = false
         }
-        
         if let text = searchBar.text, !text.isEmpty {
             self.isSearch = true
             self.searchForCoins(searchString: text)
@@ -174,7 +159,6 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         self.coinsTable.reloadData()
     }
-    
     // MARK: search coins by input string
     func searchForCoins(searchString: String) {
         self.searchCoins.removeAll()
@@ -185,11 +169,9 @@ class CoinsListViewController: UIViewController, UITableViewDelegate, UITableVie
         }
         searchCoins.sort { return $0.name < $1.name }
     }
-    
     // MARK: set testing labels
     func setAccesibilityLabels() {
         self.coinsTable.accessibilityIdentifier = "coinsTable"
         self.coinsSearchBar.accessibilityIdentifier = "coinsSearchBar"
     }
-    
 }

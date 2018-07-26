@@ -38,7 +38,8 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
         if equipment == nil {
             if NetworkReachability.isConnectedToNetwork() {
                 self.startActivityIndicator()
-                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler: { (dataResponse) -> Void in
+                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(),
+                                          completionHandler: { (dataResponse) -> Void in
                     guard let value = dataResponse.result.value else {
                         return
                     }
@@ -65,7 +66,6 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     // MARK: TableView Delegate methods
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let topPairsVC = TopPairsDetailsViewController()
         guard let equip = self.equipment else {
@@ -74,26 +74,23 @@ class TopPairsViewController: UIViewController, UITableViewDelegate, UITableView
         topPairsVC.setData(coinData: equip.coinData[indexPath.row])
         navigationController?.pushViewController(topPairsVC, animated: true)
     }
-    
     // MARK: TableView Data Source methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let equip = equipment else {
             return 0
         }
         return equip.coinData.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard var equip = equipment else {
             return UITableViewCell()
         }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? MiningCoinsTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier,
+                                                       for: indexPath) as? MiningCoinsTableViewCell else {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
         cell.configure(coinData: equip.coinData[indexPath.row])
         return cell
     }
-    
 }

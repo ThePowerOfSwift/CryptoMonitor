@@ -28,7 +28,6 @@ class EquipmentViewController: UIViewController {
     var equipment: Equipment?
     
     // MARK: ViewController methods
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
@@ -65,7 +64,6 @@ class EquipmentViewController: UIViewController {
         let selectedTab = sender.selectedSegmentIndex
         self.changeActiveTab(selectedTab: selectedTab)
     }
-    
     func changeActiveTab(selectedTab: Int) {
         let selectedVC: UIViewController?
         switch selectedTab {
@@ -97,24 +95,20 @@ class EquipmentViewController: UIViewController {
             return
         }
     }
-    
     func changeVC(vc: UIViewController) {
         self.addChildViewController(vc)
         vc.didMove(toParentViewController: self)
-        
         vc.view.frame = self.contentView.bounds
-        
         self.contentView.addSubview(vc.view)
         self.currentViewController = vc
     }
-    
     // MARK: Download from Network methods
-    
     func loadData() {
         if equipment == nil {
             if NetworkReachability.isConnectedToNetwork() {
                 self.startActivityIndicator()
-                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(), completionHandler: { (dataResponse) -> Void in
+                NetworkService.requestWeb(endpoint: EquipmentEndpoint.getEquipment(),
+                                          completionHandler: { (dataResponse) -> Void in
                     guard let value = dataResponse.result.value else {
                         return
                     }
@@ -129,9 +123,7 @@ class EquipmentViewController: UIViewController {
             }
         }
     }
-    
     // MARK: Update UI after downloading data
-    
     func updateCurrentTab(_ tabIndex: Int) {
         guard let equipment1 = equipment else {
             return
@@ -147,5 +139,4 @@ class EquipmentViewController: UIViewController {
             return
         }
     }
-    
 }

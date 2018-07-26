@@ -10,13 +10,11 @@ import Foundation
 import Alamofire
 
 enum EquipmentEndpoint: EndpointProtocol {
-    
     case getEquipment()
     case loadImage(imageUrl: String)
 }
 
 extension EquipmentEndpoint {
-    
     var path: String {
         switch self {
         case .getEquipment:
@@ -24,9 +22,7 @@ extension EquipmentEndpoint {
         case .loadImage(let url):
             return NetworkService.webBaseURL + url
         }
-        
     }
-    
     var method: HTTPMethod {
         switch self {
         case .getEquipment:
@@ -35,7 +31,6 @@ extension EquipmentEndpoint {
             return .get
         }
     }
-    
     var parameters: [String: Any]? {
         return ["": NSObject.self]
     }

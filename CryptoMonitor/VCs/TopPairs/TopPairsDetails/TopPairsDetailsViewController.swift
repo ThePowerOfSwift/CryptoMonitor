@@ -38,7 +38,9 @@ class TopPairsDetailsViewController: UIViewController, UITableViewDelegate, UITa
         guard let sym = coinData?.symbol else {
             return
         }
-        NetworkService.requestApi(endpoint: TopPairsEndpoint.getTopPairs(fsym: sym, tsym: nil, limit: 2000), completionHandler: {(dataResponse) -> Void in
+        NetworkService.requestApi(endpoint: TopPairsEndpoint.getTopPairs(
+            fsym: sym, tsym: nil, limit: 2000),
+                                  completionHandler: {(dataResponse) -> Void in
             self.stopActivityIndicator()
             guard let value = dataResponse.value else {
                 return
@@ -49,11 +51,9 @@ class TopPairsDetailsViewController: UIViewController, UITableViewDelegate, UITa
             }
         })
     }
-    
     func updateUI() {
         pairsTable.reloadData()
     }
-    
     func configurePairsTable() {
         pairsTable.register(UINib(nibName: cellName,
                                   bundle: Bundle.main),
@@ -66,14 +66,12 @@ class TopPairsDetailsViewController: UIViewController, UITableViewDelegate, UITa
     }
 
     // MARK: Table View data source methods
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let data = topPairs?.data else {
             return 0
         }
         return data.count
     }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let data = topPairs?.data else {
             return UITableViewCell()
@@ -85,13 +83,10 @@ class TopPairsDetailsViewController: UIViewController, UITableViewDelegate, UITa
         cell.updateUI()
         return cell
     }
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135.0
     }
-    
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         return 135.0
     }
-    
 }

@@ -12,7 +12,6 @@ extension UIViewController {
     func configureBackBarButtonItem() {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
-    
     func setVC_Title(_ title: String) {
         self.navigationItem.title = title
     }
@@ -29,5 +28,4 @@ extension UIViewController {
             edgesForExtendedLayout = []
         }
     }
-    
 }

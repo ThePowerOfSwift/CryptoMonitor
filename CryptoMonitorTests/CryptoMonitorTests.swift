@@ -8,8 +8,6 @@
 
 import XCTest
 
-@testable import CryptoMonitor
-
 class CryptoMonitorTests: XCTestCase {
     
     override func setUp() {

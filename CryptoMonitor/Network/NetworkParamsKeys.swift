@@ -18,7 +18,6 @@ enum NetworkParamsKeys {
         case baseLinkUrl = "BaseLinkUrl"
         case defaultWatchlist = "DefaultWatchlist"
         case coinIs = "CoinIs"
-        
         case data = "Data"
         // CoinInfo keys
         case id = "Id"
@@ -37,7 +36,6 @@ enum NetworkParamsKeys {
         case sortOrder = "SortOrder"
         case sponsored = "Sponsored"
     }
-   
     enum Equipment: String {
         //https://www.cryptocompare.com/api/data/miningequipment/
         case response = "Response"
@@ -76,7 +74,6 @@ enum NetworkParamsKeys {
         case previousTotalCoinsMined = "PreviousTotalCoinsMined"
         case blockReward = "BlockReward"
     }
-    
     enum TopPairs: String {
         // Params for request
         case fsym

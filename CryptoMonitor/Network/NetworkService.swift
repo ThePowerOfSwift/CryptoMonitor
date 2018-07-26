@@ -13,7 +13,6 @@ import Alamofire_SwiftyJSON
 import SwiftyJSON
 
 class NetworkService {
-    
     public static var apiBaseURL: String {
         return "https://min-api.cryptocompare.com"
     }
@@ -21,10 +20,12 @@ class NetworkService {
     public static var webBaseURL: String {
         return "https://www.cryptocompare.com"
     }
-    
     static func requestApi(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void) {
         if NetworkReachability.isConnectedToNetwork() {
-            Alamofire.request(apiBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
+            Alamofire.request(apiBaseURL + endpoint.path,
+                              method: endpoint.method, parameters: endpoint.parameters,
+                              encoding: URLEncoding.default, headers: nil).responseSwiftyJSON {
+                                dataResponse in
             DispatchQueue.global().async {
                 completionHandler(dataResponse)
             }
@@ -37,18 +38,21 @@ class NetworkService {
     
     static func requestWeb(endpoint: EndpointProtocol, completionHandler: @escaping (DataResponse<JSON>) -> Void) {
         if NetworkReachability.isConnectedToNetwork() {
-            let request = Alamofire.request(webBaseURL + endpoint.path, method: endpoint.method, parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil).responseSwiftyJSON { dataResponse in
+            let request = Alamofire.request(webBaseURL + endpoint.path, method: endpoint.method,
+                        parameters: endpoint.parameters, encoding: URLEncoding.default, headers: nil)
+                .responseSwiftyJSON { dataResponse in
                 DispatchQueue.global().async {
                     completionHandler(dataResponse)
                 }
             }
             debugPrint(request)
         } else {
-            let alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "No Internet Connection",
+                                    message: "Make sure your device is connected to the internet.",
+                                    delegate: nil, cancelButtonTitle: "OK")
             alert.show()
         }
     }
-    
     // MARK: Image downloading
     @discardableResult
     func downloadImage(for url: String, completion: @escaping (UIImage) -> Void) -> Request {
@@ -63,24 +67,18 @@ class NetworkService {
         //debugPrint(request)
         return request
     }
-    
     // MARK: Image Caching (to RAM Memory)
-    
     static let imageCache = AutoPurgingImageCache(
         memoryCapacity: UInt64(100 * 1024 * 1024),
         preferredMemoryUsageAfterPurge: UInt64(60 * 1024 * 1024)
     )
-    
     func cache(_ image: Image, for url: String) {
         NetworkService.imageCache.add(image, withIdentifier: url)
     }
-    
     func cachedImage(for url: String) -> Image? {
         return NetworkService.imageCache.image(withIdentifier: url)
     }
-    
     // MARK: Image Caching (disk Storage)
-    
 //    func diskImageDownloader() -> ImageDownloader {
 //        // 1024 * 1024 = MB
 //        let diskCapacity = 150 * 1024 * 1024
@@ -89,7 +87,9 @@ class NetworkService {
 //        configuration.urlCache = diskCache
 //        let cacheCapacity = 100 * 1024 * 1024
 //        let cachePurgeCapacity = 60 * 1024 * 1024
-//        let imageCache: ImageRequestCache = AutoPurgingImageCache(memoryCapacity: UInt64(cacheCapacity), preferredMemoryUsageAfterPurge: UInt64(cachePurgeCapacity))
+//        let imageCache: ImageRequestCache =
+//    AutoPurgingImageCache(memoryCapacity: UInt64(cacheCapacity),
+//    preferredMemoryUsageAfterPurge: UInt64(cachePurgeCapacity))
 //        let downloader = ImageDownloader(configuration: configuration, imageCache: imageCache)
 //        UIImageView.af_sharedImageDownloader = downloader
 //        return downloader

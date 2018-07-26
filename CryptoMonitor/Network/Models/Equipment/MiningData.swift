@@ -51,5 +51,4 @@ extension MiningData {
         currenciesAvailableLogo = json[NetworkParamsKeys.Equipment.currenciesAvailableLogo.rawValue].stringValue
         currenciesAvailableName = json[NetworkParamsKeys.Equipment.currenciesAvailableName.rawValue].stringValue
     }
-    
 }

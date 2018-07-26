@@ -10,13 +10,11 @@ import Foundation
 import Alamofire
 
 enum TopPairsEndpoint: EndpointProtocol {
-    
     case getTopPairs(fsym: String, tsym: String?, limit: Int)
     case loadImage(imageUrl: String)
 }
 
 extension TopPairsEndpoint {
-    
     var path: String {
         switch self {
         case .getTopPairs:
@@ -25,7 +23,6 @@ extension TopPairsEndpoint {
             return NetworkService.webBaseURL + url
         }
     }
-    
     var method: HTTPMethod {
         switch self {
         case .getTopPairs:
@@ -34,7 +31,6 @@ extension TopPairsEndpoint {
             return .get
         }
     }
-    
     var parameters: [String: Any]? {
         var params: [NetworkParamsKeys.TopPairs: Any] = [:]
 

@@ -10,9 +10,7 @@ import UIKit
 import SnapKit
 
 extension UIViewController {
-    
     var viewTag: Int { return 1000 }
-    
     func showNoResultView() {
         // Hide previous view
         self.hideNoResultView()
@@ -24,13 +22,14 @@ extension UIViewController {
         guard let bar = searchBar else {
             return
         }
-        
         // Create view under search bar
-        let noResView = UIView(frame: CGRect(x: 0, y: bar.frame.height, width: self.view.frame.width, height: self.view.frame.height - bar.frame.height ))
+        let noResView = UIView(frame: CGRect(x: 0, y: bar.frame.height,
+                                             width: self.view.frame.width,
+                                             height: self.view.frame.height - bar.frame.height ))
         noResView.backgroundColor = UIColor(red: 45 / 255, green: 86 / 255, blue: 142 / 255, alpha: 1)
         noResView.tag = viewTag
-        
-        let label = UILabel(frame: CGRect(x: 10, y: bar.frame.height + 30, width: self.view.frame.width - 20, height: 30))
+        let label = UILabel(frame: CGRect(x: 10, y: bar.frame.height + 30,
+                                          width: self.view.frame.width - 20, height: 30))
         label.text = "Nothing not found by your request"
         label.textAlignment = .center
         label.textColor = UIColor.white
@@ -43,20 +42,16 @@ extension UIViewController {
             make.bottom.equalTo(self.view).offset(0)
             make.right.equalTo(self.view).offset(0)
         }
-        
         // Config label constraints
         noResView.addSubview(label)
         label.snp.makeConstraints { (make) -> Void in
             make.top.left.right.equalTo(noResView).inset(UIEdgeInsets(top: 30, left: 10, bottom: 0, right: 10))
         }
-    
     }
-    
     func hideNoResultView() {
         let views = self.view.subviews.filter({ $0.tag == self.viewTag})
             for view in views {
                 view.removeFromSuperview()
             }
     }
-    
 }
